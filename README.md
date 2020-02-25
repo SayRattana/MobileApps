@@ -1,13 +1,3 @@
 # MobileApps
-Add to u
-add new line
-add new line1
-Add to u
-add new line
-add new line1
-Add to u
-add new line
-add new line1
-Add to u
-add new line
-add new line1
+# 24-02-2020
+  - Update Java Homework and Project.
