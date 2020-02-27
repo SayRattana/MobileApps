@@ -1,0 +1,21 @@
+Java Exercise date 27-02-2020 Part 1
+
+Question: Explain why the following code displays [1, 3] rather than [2, 3].
+ArrayList<Integer> list = new ArrayList<>(); 
+list.add(1);
+list.add(2);
+list.add(3);
+list.remove(1); 
+System.out.println(list);
+
+
+Answer: Because the above code [ list.remove(1); ] has removed the index of array not remove value.
+Explain:
+        ArrayList<Integer> list = new ArrayList<>(); 
+        list.add(1)      //=  index (0)
+        list.add(2)      // = index (1)
+        list.add(3)      // = index (2)
+            list.remove(1);     // mean list .remove (index (1));
+            System.out.println(list);
+
+So the result must be displayed   [1, 3].
