@@ -1,5 +1,7 @@
 # MobileApps   
     
+    # 27/02/2020 22:30
+       - Update java Homework and Project.
     # 26/02/2020 20:00
        - Update Java Homework No Project.
     # 25/02/2020 20:15
