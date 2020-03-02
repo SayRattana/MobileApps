@@ -1,0 +1,207 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 134217728 bytes for Failed to commit area from 0x0000000081000000 to 0x0000000089000000 of length 134217728.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (t:/workspace/open/src/hotspot/os/windows/os_windows.cpp:3301), pid=5492, tid=13152
+#
+# JRE version:  (13.0.1+9) (build )
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (13.0.1+9, mixed mode, aot, sharing, tiered, compressed oops, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -Dfile.encoding=UTF-8 --module-path=C:\Users\HP01\Documents\NetBeansProjects\Homework\2020-02-28\Part1\aptech.data\build\classes aptech.data.Test
+
+Host: Intel(R) Core(TM) i5-2450M CPU @ 2.50GHz, 4 cores, 7G,  Windows 10 , 64 bit Build 18362 (10.0.18362.329)
+Time: Fri Feb 28 18:16:47 2020 SE Asia Standard Time elapsed time: 0 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000001c738e7b000):  JavaThread "Unknown thread" [_thread_in_vm, id=13152, stack(0x0000005780e00000,0x0000005780f00000)]
+
+Stack: [0x0000005780e00000,0x0000005780f00000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x626eca]
+V  [jvm.dll+0x772c6a]
+V  [jvm.dll+0x77441f]
+V  [jvm.dll+0x774a23]
+V  [jvm.dll+0x24da58]
+V  [jvm.dll+0x62438a]
+V  [jvm.dll+0x618f75]
+V  [jvm.dll+0x30c61c]
+V  [jvm.dll+0x30c452]
+V  [jvm.dll+0x311bc6]
+V  [jvm.dll+0x355ce6]
+V  [jvm.dll+0x3554c0]
+V  [jvm.dll+0x2e729a]
+V  [jvm.dll+0x2e8532]
+V  [jvm.dll+0x74fcd8]
+V  [jvm.dll+0x363739]
+V  [jvm.dll+0x732dc5]
+V  [jvm.dll+0x3ce2ef]
+V  [jvm.dll+0x3d0611]
+C  [jli.dll+0x51ff]
+C  [ucrtbase.dll+0x20e72]
+C  [KERNEL32.DLL+0x17bd4]
+C  [ntdll.dll+0x6ced1]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00007ffcf9c746b8, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+
+Other Threads:
+  0x000001c738ebd800 GCTaskThread "GC Thread#0" [stack: 0x0000005780f00000,0x0000005781000000] [id=4732]
+  0x000001c738ed2800 ConcurrentGCThread "G1 Main Marker" [stack: 0x0000005781000000,0x0000005781100000] [id=3268]
+  0x000001c738ed3800 ConcurrentGCThread "G1 Conc#0" [stack: 0x0000005781100000,0x0000005781200000] [id=12416]
+
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffcf94a6f67]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x000001c738e78560] Heap_lock - owner thread: 0x000001c738e7b000
+
+Heap address: 0x0000000081000000, size: 2032 MB, Compressed Oops mode: Non-zero based: 0x0000000081000000
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (8 events):
+Event: 0.013 Loaded shared library C:\Program Files\java\jdk-13.0.1\bin\zip.dll
+Event: 0.014 Loaded shared library C:\Program Files\java\jdk-13.0.1\bin\jimage.dll
+Event: 0.017 Loading shared library C:\Program Files\java\jdk-13.0.1\lib\libjava.base-coop.dll failed, error code 126
+Event: 0.017 Loading shared library C:\Program Files\java\jdk-13.0.1\lib\libjava.logging-coop.dll failed, error code 126
+Event: 0.017 Loading shared library C:\Program Files\java\jdk-13.0.1\lib\libjdk.compiler-coop.dll failed, error code 126
+Event: 0.018 Loading shared library C:\Program Files\java\jdk-13.0.1\lib\libjdk.scripting.nashorn-coop.dll failed, error code 126
+Event: 0.018 Loading shared library C:\Program Files\java\jdk-13.0.1\lib\libjdk.internal.vm.ci-coop.dll failed, error code 126
+Event: 0.018 Loading shared library C:\Program Files\java\jdk-13.0.1\lib\libjdk.internal.vm.compiler-coop.dll failed, error code 126
+
+
+Dynamic libraries:
+0x00007ff786920000 - 0x00007ff78692f000 	C:\Program Files\java\jdk-13.0.1\bin\java.exe
+0x00007ffd2ae40000 - 0x00007ffd2b030000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ffd29bb0000 - 0x00007ffd29c62000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ffd28c40000 - 0x00007ffd28ee3000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ffd28b40000 - 0x00007ffd28c3a000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ffd20d50000 - 0x00007ffd20d68000 	C:\Program Files\java\jdk-13.0.1\bin\jli.dll
+0x00007ffd24430000 - 0x00007ffd24445000 	C:\Program Files\java\jdk-13.0.1\bin\VCRUNTIME140.dll
+0x00007ffd2a560000 - 0x00007ffd2a603000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ffd29500000 - 0x00007ffd2959e000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ffd28fa0000 - 0x00007ffd29037000 	C:\WINDOWS\System32\sechost.dll
+0x00007ffd29040000 - 0x00007ffd29160000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ffd29a10000 - 0x00007ffd29ba4000 	C:\WINDOWS\System32\USER32.dll
+0x00007ffd27e40000 - 0x00007ffd27e61000 	C:\WINDOWS\System32\win32u.dll
+0x00007ffd2a490000 - 0x00007ffd2a4b6000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ffd286f0000 - 0x00007ffd28884000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ffd285f0000 - 0x00007ffd2868e000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ffd149e0000 - 0x00007ffd14c65000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.18362.657_none_e6c5b579130e3898\COMCTL32.dll
+0x00007ffd291c0000 - 0x00007ffd294f6000 	C:\WINDOWS\System32\combase.dll
+0x00007ffd28ac0000 - 0x00007ffd28b40000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ffd1e9c0000 - 0x00007ffd1e9ca000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ffd2a400000 - 0x00007ffd2a42e000 	C:\WINDOWS\System32\IMM32.DLL
+0x00007ffd1d670000 - 0x00007ffd1d70b000 	C:\Program Files\java\jdk-13.0.1\bin\msvcp140.dll
+0x00007ffcf91b0000 - 0x00007ffcf9d16000 	C:\Program Files\java\jdk-13.0.1\bin\server\jvm.dll
+0x00007ffd2a4c0000 - 0x00007ffd2a4c8000 	C:\WINDOWS\System32\PSAPI.DLL
+0x00007ffd05b80000 - 0x00007ffd05b89000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ffd25ba0000 - 0x00007ffd25bc4000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ffd2ad90000 - 0x00007ffd2adff000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ffd25b70000 - 0x00007ffd25b9d000 	C:\WINDOWS\SYSTEM32\WINMMBASE.dll
+0x00007ffd27dd0000 - 0x00007ffd27e1a000 	C:\WINDOWS\System32\cfgmgr32.dll
+0x00007ffd27db0000 - 0x00007ffd27dc1000 	C:\WINDOWS\System32\kernel.appcore.dll
+0x00007ffd25bd0000 - 0x00007ffd25be0000 	C:\Program Files\java\jdk-13.0.1\bin\verify.dll
+0x00007ffd147a0000 - 0x00007ffd14994000 	C:\WINDOWS\SYSTEM32\DBGHELP.DLL
+0x00007ffd14770000 - 0x00007ffd1479a000 	C:\WINDOWS\SYSTEM32\dbgcore.DLL
+0x00007ffd20f70000 - 0x00007ffd20f96000 	C:\Program Files\java\jdk-13.0.1\bin\java.dll
+0x00007ffd20f50000 - 0x00007ffd20f67000 	C:\Program Files\java\jdk-13.0.1\bin\zip.dll
+0x00007ffd245d0000 - 0x00007ffd245da000 	C:\Program Files\java\jdk-13.0.1\bin\jimage.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Program Files\java\jdk-13.0.1\bin;C:\WINDOWS\SYSTEM32;C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.18362.657_none_e6c5b579130e3898;C:\Program Files\java\jdk-13.0.1\bin\server
+
+VM Arguments:
+jvm_args: -Dfile.encoding=UTF-8 --module-path=C:\Users\HP01\Documents\NetBeansProjects\Homework\2020-02-28\Part1\aptech.data\build\classes 
+java_command: aptech.data.Test
+java_class_path (initial): C:\Users\HP01\Documents\NetBeansProjects\Homework\2020-02-28\Part1\aptech.data\build\classes
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 3                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 1                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 4                                         {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 1048576                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 134217728                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 2130706432                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 1048576                                   {product} {ergonomic}
+   size_t MinHeapSize                              = 8388608                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5830732                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122913754                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122913754                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+   size_t SoftMaxHeapSize                          = 2130706432                             {manageable} {ergonomic}
+     bool UseCompressedClassPointers               = true                                 {lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                                 {lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\java\jdk-13.0.1
+PATH=C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Brackets\command;C:\WINDOWS\System32\OpenSSH\;C:\Users\HP01\AppData\Local\Microsoft\WindowsApps;C:\adb;C:\Program Files\Git\cmd;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\HP01\AppData\Local\Microsoft\WindowsApps;;C:\Users\HP01\AppData\Local\Programs\Microsoft VS Code\bin
+USERNAME=HP01
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 42 Stepping 7, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10 , 64 bit Build 18362 (10.0.18362.329)
+
+CPU:total 4 (initial active 4) (2 cores per cpu, 2 threads per core) family 6 model 42 stepping 7, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, aes, clmul, ht, tsc, tscinvbit
+
+Memory: 4k page, system-wide physical 8126M (304M free)
+TotalPageFile size 31108M (AvailPageFile size 124M)
+current process WorkingSet (physical memory assigned to process): 10M, peak: 10M
+current process commit charge ("private bytes"): 52M, peak: 180M
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (13.0.1+9) for windows-amd64 JRE (13.0.1+9), built on Oct  6 2019 12:37:49 by "mach5one" with unknown MS VC++:1916
+
+END.
