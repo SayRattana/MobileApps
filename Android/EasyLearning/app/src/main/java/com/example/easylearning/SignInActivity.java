@@ -17,7 +17,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class LoginActivity extends AppCompatActivity {
+public class SignInActivity extends AppCompatActivity {
 
     EditText etUserEmail, etUserPassword;
     Button btnSignIn;
@@ -28,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_signin);
 
         mFirebaseAuth = FirebaseAuth.getInstance();
         etUserEmail = (EditText)findViewById(R.id.etUserEmail);
@@ -41,11 +41,11 @@ public class LoginActivity extends AppCompatActivity {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser mFirebaseUser = mFirebaseAuth.getCurrentUser();
                 if (mFirebaseUser != null) {
-                    Toast.makeText(LoginActivity.this, "You are logged in ", Toast.LENGTH_SHORT).show();
-                    Intent i = new Intent(LoginActivity.this, HomeActivity.class);
+                    Toast.makeText(SignInActivity.this, "You are logged in ", Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent(SignInActivity.this, SuccessfulActivity.class);
                     startActivity(i);
                 } else {
-                    Toast.makeText(LoginActivity.this, "Please login ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignInActivity.this, "Please login ", Toast.LENGTH_SHORT).show();
                 }
             }
         };
@@ -63,22 +63,22 @@ public class LoginActivity extends AppCompatActivity {
                      etUserPassword.setError("Please enter your password");
                      etUserPassword.requestFocus();
                  } else if (email.isEmpty() && pass.isEmpty()) {
-                     Toast.makeText(LoginActivity.this, "Field are empty", Toast.LENGTH_SHORT).show();
+                     Toast.makeText(SignInActivity.this, "Field are empty", Toast.LENGTH_SHORT).show();
                  } else if (!(email.isEmpty() && pass.isEmpty())) {
                      mFirebaseAuth.signInWithEmailAndPassword(email, pass)
-                             .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
+                             .addOnCompleteListener(SignInActivity.this, new OnCompleteListener<AuthResult>() {
                                  @Override
                                  public void onComplete(@NonNull Task<AuthResult> task) {
                                      if (!task.isSuccessful()) {
-                                         Toast.makeText(LoginActivity.this, "Login Error!, Please Login Again", Toast.LENGTH_SHORT).show();
+                                         Toast.makeText(SignInActivity.this, "Login Error!, Please Login Again", Toast.LENGTH_SHORT).show();
                                      } else {
-                                         Intent intToHome = new Intent(LoginActivity.this, HomeActivity.class);
+                                         Intent intToHome = new Intent(SignInActivity.this, SuccessfulActivity.class);
                                          startActivity(intToHome);
                                      }
                                  }
                              });
                  } else {
-                     Toast.makeText(LoginActivity.this, "Error Occurred!", Toast.LENGTH_SHORT).show();
+                     Toast.makeText(SignInActivity.this, "Error Occurred!", Toast.LENGTH_SHORT).show();
                  }
              }
         });
@@ -86,7 +86,7 @@ public class LoginActivity extends AppCompatActivity {
             tvSignUp.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intSignUp = new Intent(LoginActivity.this, MainActivity.class);
+                    Intent intSignUp = new Intent(SignInActivity.this, SignUpActivity.class);
                     startActivity(intSignUp);
                 }
             });

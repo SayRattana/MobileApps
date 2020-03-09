@@ -16,7 +16,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class MainActivity extends AppCompatActivity {
+public class SignUpActivity extends AppCompatActivity {
     EditText etEmail, etPassword;
     Button btnSignUp;
     TextView tvSignIn;
@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_signup);
 
         mFirebaseAuth = FirebaseAuth.getInstance();
         etEmail = (EditText)findViewById(R.id.etEmail);
@@ -47,23 +47,23 @@ public class MainActivity extends AppCompatActivity {
                     etPassword.requestFocus();
                 }
                 else if (email.isEmpty() && pass.isEmpty()){
-                    Toast.makeText(MainActivity.this, "Field are empty",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignUpActivity.this, "Field are empty",Toast.LENGTH_SHORT).show();
                 }
                 else if (!(email.isEmpty() && pass.isEmpty())){
                     mFirebaseAuth.createUserWithEmailAndPassword(email,pass)
-                    .addOnCompleteListener(MainActivity.this,new OnCompleteListener<AuthResult>() {
+                    .addOnCompleteListener(SignUpActivity.this,new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(!task.isSuccessful()){
-                                Toast.makeText(MainActivity.this, "SignUp Unsuccessful, Please Try Again!",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(SignUpActivity.this, "SignUp Unsuccessful, Please Try Again!",Toast.LENGTH_SHORT).show();
                             }else {
-                                startActivity(new Intent(MainActivity.this,HomeActivity.class));
+                                startActivity(new Intent(SignUpActivity.this, SuccessfulActivity.class));
                             }
                         }
                     });
                 }
                 else {
-                    Toast.makeText(MainActivity.this, "Error Occurred!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignUpActivity.this, "Error Occurred!",Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
        tvSignIn.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
-               Intent i = new Intent(MainActivity.this,LoginActivity.class);
+               Intent i = new Intent(SignUpActivity.this, SignInActivity.class);
                startActivity(i);
            }
        });

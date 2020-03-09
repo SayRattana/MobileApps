@@ -9,7 +9,7 @@ import android.widget.Button;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class HomeActivity extends AppCompatActivity {
+public class SuccessfulActivity extends AppCompatActivity {
     Button btnLogOut;
     FirebaseAuth mFirebaseAuth;
 
@@ -18,7 +18,7 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_successful);
 
         btnLogOut = (Button)findViewById(R.id.btnLogout);
 
@@ -26,7 +26,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
-                Intent intToMain = new Intent(HomeActivity.this,MainActivity.class);
+                Intent intToMain = new Intent(SuccessfulActivity.this, SignUpActivity.class);
                 startActivity(intToMain);
             }
         });
