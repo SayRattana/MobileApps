@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Registration</string>
+    <string name="e_mail">E-mail</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Sign in</string>
+    <string name="not_registered_sign_up_here">Not registered ? Sign up here!</string>
+</resources>
