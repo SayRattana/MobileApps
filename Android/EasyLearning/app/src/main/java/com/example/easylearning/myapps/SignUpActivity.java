@@ -3,6 +3,7 @@ package com.example.easylearning.myapps;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +14,8 @@ import android.widget.Toast;
 
 import com.example.easylearning.IMyActivity.IMyActivity;
 import com.example.easylearning.R;
+import com.example.easylearning.helpers.Validation;
+import com.example.easylearning.helpers.ValidationError;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.errorprone.annotations.IncompatibleModifiers;
@@ -26,6 +29,7 @@ public class SignUpActivity extends AppCompatActivity implements IMyActivity {
     private Button btnSignUp;
     private TextView tvSignIn;
     private FirebaseAuth mFirebaseAuth;
+    private  ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +50,8 @@ public class SignUpActivity extends AppCompatActivity implements IMyActivity {
         etPassword = findViewById(R.id.etPassword);
         btnSignUp = findViewById(R.id.btnSignUp);
         tvSignIn =findViewById(R.id.tvSignIn);
+        progressDialog = new ProgressDialog(this);
+
 
     }
 
@@ -59,29 +65,58 @@ public class SignUpActivity extends AppCompatActivity implements IMyActivity {
             public void onClick(View v) {
                 String email = etEmail.getText().toString();
                 String pass = etPassword.getText().toString();
-                if (email.isEmpty()){
+
+                // For E-mail and Password Fields Are empty.
+                if (email.isEmpty()) {
                     etEmail.setError("Please enter your email id");
                     etEmail.requestFocus();
-                }
-                else if (pass.isEmpty()){
+                } if (pass.isEmpty()) {
                     etPassword.setError("Please enter your password");
                     etPassword.requestFocus();
+                }  if (email.isEmpty() && pass.isEmpty()) {
+                    Toast.makeText(SignUpActivity.this, "Field are empty",
+                            Toast.LENGTH_SHORT).show();
                 }
-                else if (email.isEmpty() && pass.isEmpty()){
-                    Toast.makeText(SignUpActivity.this, "Field are empty",Toast.LENGTH_SHORT).show();
-                }
+
+                    // For E-mail field incorrect format.
+                    ValidationError validationError = Validation.validateEmail(etEmail.getText().toString());
+                    if (validationError != null) {
+                        Toast.makeText(SignUpActivity.this,
+                                validationError.getErrorDetail(),Toast.LENGTH_LONG).show();
+                        etEmail.requestFocus();
+                        return;
+                    }
+
+                    // For Password field  less than 6 characters.
+                    validationError = Validation.validatePassword(etPassword.getText().toString());
+                   if (validationError != null) {
+                        Toast.makeText(SignUpActivity.this,
+                                validationError.getErrorDetail(),Toast.LENGTH_LONG).show();
+                        etPassword.requestFocus();
+
+                        return;
+                    }
+
+                // For E-mail and Password fields are correct.
                 else if (!(email.isEmpty() && pass.isEmpty())){
+                    progressDialog.setMessage("You are subscribe to my channel until you are verified!");
+                    progressDialog.show();
                     mFirebaseAuth.createUserWithEmailAndPassword(email,pass)
-                            .addOnCompleteListener(SignUpActivity.this,new OnCompleteListener<AuthResult>() {
-                                @Override
-                                public void onComplete(@NonNull Task<AuthResult> task) {
-                                    if(!task.isSuccessful()){
-                                        Toast.makeText(SignUpActivity.this, "SignUp Unsuccessful, Please Try Again!",Toast.LENGTH_SHORT).show();
-                                    }else {
-                                        startActivity(new Intent(SignUpActivity.this, SuccessfulActivity.class));
-                                    }
-                                }
-                            });
+                    .addOnCompleteListener(SignUpActivity.this,new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if(!task.isSuccessful()){
+                                progressDialog.dismiss();
+                                Toast.makeText(SignUpActivity.this,
+                               "SignUp Unsuccessful,\nE-mail already signin.\nPlease Try Again!",
+                               Toast.LENGTH_SHORT).show();
+
+                            }else {
+                                progressDialog.dismiss();
+                                startActivity(new Intent(SignUpActivity.this, SuccessfulActivity.class));
+                            }
+                        }
+                    });
                 }
                 else {
                     Toast.makeText(SignUpActivity.this, "Error Occurred!",Toast.LENGTH_SHORT).show();

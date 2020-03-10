@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".myapps.ResetPasswordActivity"/>
+        <activity android:name=".myapps.ResetPasswordActivity" />
         <activity android:name=".myapps.SuccessfulActivity" />
         <activity android:name=".myapps.SignUpActivity" />
         <activity android:name=".myapps.SignInActivity">

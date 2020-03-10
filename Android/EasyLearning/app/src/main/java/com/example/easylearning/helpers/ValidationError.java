@@ -13,7 +13,7 @@ public class ValidationError {
 
     public static final ValidationError EMAIL_ERROR = new ValidationError(
             102,
-            "Email is not in correct format");
+            "Email is not incorrect format");
 
     private Integer errorCode; //
     private String errorDetail;//EX: User and password must have at least 2 characters, ...

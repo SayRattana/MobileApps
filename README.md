@@ -1,5 +1,7 @@
 # MobileApps
 
+    # 10/03/2020 11:30
+       - Update Android Projects EasyLearning (Write Progress code to SignInActivity and SignUpActivity)
     # 10/03/2020 18:30
        - Update Android Code and Interface (Add ResetpasswordActivity)
     # 09/03/2020 11:00

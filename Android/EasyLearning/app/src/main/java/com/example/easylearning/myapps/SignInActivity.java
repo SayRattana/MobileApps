@@ -3,7 +3,9 @@ package com.example.easylearning.myapps;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -23,9 +25,11 @@ public class SignInActivity extends AppCompatActivity implements IMyActivity {
 
     private EditText etUserEmail, etUserPassword;
     private Button btnSignIn;
-    private TextView tvSignUp,tvForgotPassword;
+    private TextView tvSignUp,tvForgotPassword,tvShowAttempts;
     private FirebaseAuth mFirebaseAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
+    private  ProgressDialog progressDialog;
+    private int counter=5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +38,7 @@ public class SignInActivity extends AppCompatActivity implements IMyActivity {
 
         mapUIToProperties();
         setUpAction();
+
     }
 
 
@@ -44,13 +49,18 @@ public class SignInActivity extends AppCompatActivity implements IMyActivity {
         etUserPassword = findViewById(R.id.etUserPassword);
         btnSignIn = findViewById(R.id.btnSignIn);
         tvForgotPassword = findViewById(R.id.tvForgotPassword);
+        tvShowAttempts = findViewById(R.id.tvShowAttempts);
         tvSignUp =findViewById(R.id.tvSignUp);
+        progressDialog = new ProgressDialog(this);
 
     }
 
 
     @Override
     public void setUpAction() {
+
+
+
 
         mAuthStateListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -70,6 +80,8 @@ public class SignInActivity extends AppCompatActivity implements IMyActivity {
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
                 String email = etUserEmail.getText().toString();
                 String pass = etUserPassword.getText().toString();
                 if (email.isEmpty()) {
@@ -81,15 +93,25 @@ public class SignInActivity extends AppCompatActivity implements IMyActivity {
                 } else if (email.isEmpty() && pass.isEmpty()) {
                     Toast.makeText(SignInActivity.this, "Field are empty", Toast.LENGTH_SHORT).show();
                 } else if (!(email.isEmpty() && pass.isEmpty())) {
+                    progressDialog.setMessage("You are subscribe to my channel until you are verified!");
+                    progressDialog.show();
                     mFirebaseAuth.signInWithEmailAndPassword(email, pass)
                             .addOnCompleteListener(SignInActivity.this, new OnCompleteListener<AuthResult>() {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (!task.isSuccessful()) {
-                                        Toast.makeText(SignInActivity.this, "Login Error!, Please Login Again", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(SignInActivity.this, "SignIn Error, Please SignIn Again !", Toast.LENGTH_SHORT).show();
+                                        counter--;
+                                        tvShowAttempts.setText("No of attempts remaining: " + String.valueOf(counter));
+                                        tvShowAttempts.setTextColor(Color.rgb(255,0,0));
+                                        progressDialog.dismiss();
+                                        if (counter == 0) {
+                                            btnSignIn.setEnabled(false);
+                                        }
                                     } else {
-                                        Intent intToHome = new Intent(SignInActivity.this, SuccessfulActivity.class);
-                                        startActivity(intToHome);
+                                        progressDialog.dismiss();
+                                        Intent goToSuccess = new Intent(SignInActivity.this, SuccessfulActivity.class);
+                                        startActivity(goToSuccess);
                                     }
                                 }
                             });
