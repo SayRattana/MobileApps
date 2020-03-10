@@ -1,4 +1,4 @@
-package com.example.sum3value;
+package com.example.login;
 
 import org.junit.Test;
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".myapp.MainActivity">
 
     <EditText
         android:id="@+id/etNum1"
@@ -13,6 +13,7 @@
         android:layout_marginTop="100dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
+        android:inputType="numberDecimal"
         android:textSize="14sp"
         android:hint="Number 1"
         app:layout_constraintTop_toTopOf="parent"
@@ -28,6 +29,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
+        android:inputType="numberDecimal"
         android:textSize="14sp"
         android:hint="Number 2"
         app:layout_constraintTop_toBottomOf="@id/etNum1"
@@ -43,6 +45,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
+        android:inputType="numberDecimal"
         android:textSize="14sp"
         android:hint="Number 3"
         app:layout_constraintTop_toBottomOf="@id/etNum2"
@@ -60,7 +63,7 @@
         android:layout_marginRight="30dp"
         android:textSize="14sp"
         android:background="#DA03A9F4"
-        android:text="Sum of 3 Numbers"
+       android:text="Sum of 3 Numbers"
         android:textAllCaps="false"
         app:layout_constraintTop_toBottomOf="@id/etNum3"
         app:layout_constraintEnd_toEndOf="parent"
@@ -73,18 +76,31 @@
         android:id="@+id/tvResult"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:height="30sp"
+        android:height="50sp"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:textStyle="bold"
-        android:textSize="14sp"
-        android:text="Result"
+        android:textSize="16sp"
         android:textColor="#0000FF"
         app:layout_constraintTop_toBottomOf="@id/btnSum"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintVertical_bias="0.0"  />
+
+    <TextView
+        android:id="@+id/tvBackToPart2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back To Part2"
+        android:textColor="#0000FF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.866"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvResult"
+        app:layout_constraintVertical_bias="0.756" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

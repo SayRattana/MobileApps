@@ -1,4 +1,4 @@
-package com.example.sum3value;
+package com.example.login;
 
 import android.content.Context;
 
@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
-        assertEquals("com.example.sum3value", appContext.getPackageName());
+        assertEquals("com.example.login", appContext.getPackageName());
     }
 }
