@@ -28,54 +28,7 @@ public class MainActivity extends AppCompatActivity {
         mapUIToProperties();
         setupActions();
 
-    /*
 
-        btnSum.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-             int x, y, z, sum;
-//                if((etNum1.getText().toString().equals("")) &&
-//                        (etNum2.getText().toString().equals("")) &&
-//                                (etNum3.getText().toString().equals(""))) {
-//                    x = 0;
-//                    y = 0;
-//                    z = 0;
-//                    Toast.makeText(MainActivity.this, "Fields are not empty, Please enter value:", Toast.LENGTH_LONG).show();
-//
-//                }else{
-//                        x = Integer.parseInt(etNum1.getText().toString());
-//                        y = Integer.parseInt(etNum2.getText().toString());
-//                        z = Integer.parseInt(etNum3.getText().toString());
-//                    }
-
-                if (etNum1.getText().toString().equals("")) {
-                    x = 0;
-                    Toast.makeText(MainActivity.this, "Please enter value of number1", Toast.LENGTH_LONG).show();
-                    etNum1.requestFocus();
-                } else {
-                    x = Integer.parseInt(etNum1.getText().toString());
-                }
-                if (etNum2.getText().toString().equals("")) {
-                    y = 0;
-                    Toast.makeText(MainActivity.this, "Please enter value of number2", Toast.LENGTH_LONG).show();
-                    etNum2.requestFocus();
-                } else {
-                    y = Integer.parseInt(etNum2.getText().toString());
-                }
-                if (etNum3.getText().toString().equals("")) {
-                    z = 0;
-                    Toast.makeText(MainActivity.this, "Please enter value of number3", Toast.LENGTH_LONG).show();
-                    etNum3.requestFocus();
-                } else {
-                    z = Integer.parseInt(etNum3.getText().toString());
-                }
-
-                sum = x + y + z;
-                tvResult.setText(String.valueOf("Sum of: " + x + " + " + y + " + " + z + " = " + sum));
-            }
-        });
-
-*/
     }
 
 
@@ -144,22 +97,26 @@ public class MainActivity extends AppCompatActivity {
             if (TextUtils.isEmpty(etNum1.getText().toString())
                     && TextUtils.isEmpty(etNum2.getText().toString())
                     && TextUtils.isEmpty(etNum3.getText().toString())) {
-                Toast.makeText(MainActivity.this, "All fields are empty !\nPlease enter value.", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this,
+                        "All fields are empty !\nPlease enter value.", Toast.LENGTH_LONG).show();
                 etNum1.requestFocus();
                 return ;
             }
             if(TextUtils.isEmpty(etNum1.getText().toString())){
-                Toast.makeText(MainActivity.this, "Please enter value of number1", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this,
+                        "Please enter value of number1", Toast.LENGTH_LONG).show();
                 etNum1.requestFocus();
                 return;
             }
             if(TextUtils.isEmpty(etNum2.getText().toString())){
-                Toast.makeText(MainActivity.this, "Please enter value of number2", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this,
+                        "Please enter value of number2", Toast.LENGTH_LONG).show();
                 etNum2.requestFocus();
                 return;
             }
             if(TextUtils.isEmpty(etNum3.getText().toString())){
-                Toast.makeText(MainActivity.this, "Please enter value of number3", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this,
+                        "Please enter value of number3", Toast.LENGTH_LONG).show();
                 etNum3.requestFocus();
                 return;
             }
@@ -178,21 +135,3 @@ public class MainActivity extends AppCompatActivity {
     }
 
 }
-/*
- double numb1=0.0;
-            double numb2=0.0;
-            double numb3=0.0;
-            double sum;
-            //Check if the field empty
-            if (TextUtils.isEmpty(num1.getText().toString())
-                    || TextUtils.isEmpty(num2.getText().toString())
-                    ||TextUtils.isEmpty(num3.getText().toString())) {
-                return ;
-            }
-            numb1=Double.parseDouble(num1.getText().toString());
-            numb2=Double.parseDouble(num2.getText().toString());
-            numb3=Double.parseDouble(num3.getText().toString());
-            sum=numb1+numb2+numb3;
-            result.setText(Double.toString(sum));
-
- */

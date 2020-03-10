@@ -26,10 +26,13 @@ public class LoginActivity extends AppCompatActivity implements IMyActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
         mapUIToProperties();
         setUpAction();
 
     }
+
+
     @Override
     public void mapUIToProperties(){
         etUsername = findViewById(R.id.etUserName);
@@ -74,6 +77,7 @@ public class LoginActivity extends AppCompatActivity implements IMyActivity{
         });
 
 
+
         tvGoToPart3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,5 +87,9 @@ public class LoginActivity extends AppCompatActivity implements IMyActivity{
         });
 
 
+
     }
+
+
+
 }
