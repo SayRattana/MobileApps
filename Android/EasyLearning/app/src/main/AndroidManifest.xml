@@ -5,13 +5,15 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="Registration"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".myapps.ResetPasswordActivity" />
         <activity android:name=".myapps.SuccessfulActivity" />
-        <activity android:name=".myapps.SignUpActivity" />
+        <activity android:name=".myapps.SignUpActivity"
+                  />
+
         <activity android:name=".myapps.SignInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

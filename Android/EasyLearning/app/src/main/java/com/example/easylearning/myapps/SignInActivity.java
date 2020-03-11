@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,6 +27,7 @@ public class SignInActivity extends AppCompatActivity implements IMyActivity {
     private EditText etUserEmail, etUserPassword;
     private Button btnSignIn;
     private TextView tvSignUp,tvForgotPassword,tvShowAttempts;
+    private ImageView ivSignPlus;
     private FirebaseAuth mFirebaseAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
     private  ProgressDialog progressDialog;
@@ -50,7 +52,8 @@ public class SignInActivity extends AppCompatActivity implements IMyActivity {
         btnSignIn = findViewById(R.id.btnSignIn);
         tvForgotPassword = findViewById(R.id.tvForgotPassword);
         tvShowAttempts = findViewById(R.id.tvShowAttempts);
-        tvSignUp =findViewById(R.id.tvSignUp);
+        tvSignUp = findViewById(R.id.tvSignUp);
+        ivSignPlus= findViewById(R.id.ivSignPlus);
         progressDialog = new ProgressDialog(this);
 
     }
@@ -102,7 +105,7 @@ public class SignInActivity extends AppCompatActivity implements IMyActivity {
                                     if (!task.isSuccessful()) {
                                         Toast.makeText(SignInActivity.this, "SignIn Error, Please SignIn Again !", Toast.LENGTH_SHORT).show();
                                         counter--;
-                                        tvShowAttempts.setText("No of attempts remaining: " + String.valueOf(counter));
+                                        tvShowAttempts.setText("Number of attempts remaining: " + String.valueOf(counter));
                                         tvShowAttempts.setTextColor(Color.rgb(255,0,0));
                                         progressDialog.dismiss();
                                         if (counter == 0) {
@@ -142,6 +145,15 @@ public class SignInActivity extends AppCompatActivity implements IMyActivity {
         });
       /**<-- End of Code TextView SignUp*/
 
+      /**--> Start of Code ImageView SignUp (SignPlus) */
+        ivSignPlus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intSignUp = new Intent(SignInActivity.this, SignUpActivity.class);
+                startActivity(intSignUp);
+            }
+        });
+      /**<-- End of Code ImageView SignUp (SignPlus) */
 
 
     }

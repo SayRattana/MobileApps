@@ -5,13 +5,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.easylearning.myapps.SignInActivity">
-
+    <TextView
+        android:id="@+id/tvHeaderSignIn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:height="60sp"
+        android:text=" Sign In"
+        android:textColor="@color/colorWhite"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center_vertical"
+        android:background="@color/LightBlue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/etUserEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="70dp"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
         android:ems="12"
@@ -21,7 +37,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvHeaderSignIn"
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
@@ -76,10 +92,10 @@
         android:id="@+id/tvShowAttempts"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:layout_marginLeft="24dp"
         android:layout_marginRight="24dp"
-        android:text="No of attempts remaining: 5"
+        android:text="Number of attempts remaining: 5"
         android:textAlignment="center"
         android:textSize="14dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -92,12 +108,12 @@
         android:id="@+id/tvSignUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="60dp"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
         android:text="No Registered? Sign Up Here !"
         android:textAlignment="center"
-        android:textColor="#0000FF"
+        android:textColor="#1D75BD"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -108,4 +124,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvShowAttempts"
         app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/ivSignPlus"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/signplus"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSignUp"
+        app:layout_constraintVertical_bias="0.50"
+        app:layout_constraintHorizontal_bias="0.85"
+        app:srcCompat="@drawable/signplus" />
 </androidx.constraintlayout.widget.ConstraintLayout>
