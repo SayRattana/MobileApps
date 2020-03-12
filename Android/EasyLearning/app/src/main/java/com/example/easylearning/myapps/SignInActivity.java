@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.easylearning.IMyActivity.IMyActivity;
+import com.example.easylearning.MainActivity;
 import com.example.easylearning.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -113,7 +114,7 @@ public class SignInActivity extends AppCompatActivity implements IMyActivity {
                                         }
                                     } else {
                                         progressDialog.dismiss();
-                                        Intent goToSuccess = new Intent(SignInActivity.this, SuccessfulActivity.class);
+                                        Intent goToSuccess = new Intent(SignInActivity.this, MainActivity.class);
                                         startActivity(goToSuccess);
                                     }
                                 }

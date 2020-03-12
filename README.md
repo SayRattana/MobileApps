@@ -1,5 +1,7 @@
 # MobileApps
 
+    # 12/03/2020 18:00
+       - Update Android Projects EasyLearning (Create Navigation Drawer Activity and Add menu [about me])
     # 11/03/2020 16:30
        - Update Android Projects EasyLearning (Create Plus Sign icon to SignInActivity)
     # 10/03/2020 23:30
