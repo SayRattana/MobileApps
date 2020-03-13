@@ -5,17 +5,21 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.RelativeLayout;
 
+import com.example.easylearning.bottomnavi.FavoritesFragment;
+import com.example.easylearning.bottomnavi.HomesFragment;
+import com.example.easylearning.bottomnavi.SearchFragment;
 import com.example.easylearning.myapps.SignInActivity;
-import com.example.easylearning.myapps.SuccessfulActivity;
-import com.example.easylearning.ui.aboutme.AboutmeFragment;
-import com.example.easylearning.ui.aboutme.AboutmeViewModel;
+import com.example.easylearning.ui.home.HomeFragment;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
-import androidx.lifecycle.ViewModel;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -27,11 +31,16 @@ import androidx.appcompat.widget.Toolbar;
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
+    private FirebaseAuth mFirebaseAuth;
+    private FirebaseAuth.AuthStateListener mAuthStateListener;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+    /**--> Start of block code icon message*/
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -42,7 +51,12 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+    /**<-- Start of block code icon message*/
+
+
+
+    /**--> Start of block code  Left navigation*/
+       DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -53,14 +67,42 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
-    }
+    /**<-- End of block code  Left navigation*/
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
+
+
+    /**--> Start of block code bottom navigation*/
+        //for button Navigation View (add this line on 03/13/2020)
+           BottomNavigationView bottomNaviView = findViewById(R.id.bottom_nav_view);
+           bottomNaviView.setOnNavigationItemSelectedListener(navlistener);
+           getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
+                new HomeFragment()).commit();
+
+    } // this braces '}' for close protected void onCreate(Bundle savedInstanceState) method.
+
+            BottomNavigationView.OnNavigationItemSelectedListener navlistener =
+            new BottomNavigationView.OnNavigationItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                    Fragment selectedFragment=null;
+                    switch (item.getItemId()){
+                        case R.id.bottom_navi_home:
+                            selectedFragment = new HomeFragment();
+                            break;
+                        case R.id.bottom_navi_favorite:
+                            selectedFragment = new FavoritesFragment();
+                            break;
+                        case R.id.bottom_navi_search:
+                            selectedFragment = new SearchFragment();
+                            break;
+                    }
+                   getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
+                            selectedFragment).commit();
+                    return true;
+                }
+            };
+    /**<-- End of block code bottom navigation*/
+
 
     @Override
     public boolean onSupportNavigateUp() {
@@ -70,26 +112,37 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-//            case R.id.action_aboutme: {
-//               startActivity(new Intent(MainActivity.this, AboutmeFragment.class));
-//            }
+
+    /**--> Start of block code right menu */
+        @Override
+        public boolean onCreateOptionsMenu(Menu menu) {
+            // Inflate the menu; this adds items to the action bar if it is present.
+            getMenuInflater().inflate(R.menu.main, menu);
+            return true;
+        }
+        @Override
+        public boolean onOptionsItemSelected(MenuItem item) {
+            switch (item.getItemId()) {
+
+    //            case R.id.action_aboutme: {
+    //               startActivity(new Intent(MainActivity.this, AboutmeFragment.class));
+    //               break;
+    //            }
+
+                case R.id.action_signout: {
+                    FirebaseAuth.getInstance().signOut();
+                    finish();
+                    Intent goToSignin = new Intent(MainActivity.this, SignInActivity.class);
+                    startActivity(goToSignin);
+                    break;
+
+                }
 
 
-            case R.id.action_signout: {
-                FirebaseAuth.getInstance().signOut();
-                finish();
-                Intent goToSignin = new Intent(MainActivity.this, SignInActivity.class);
-                startActivity(goToSignin);
             }
-
-
+                return super.onOptionsItemSelected(item);
         }
-            return super.onOptionsItemSelected(item);
-        }
-
+    /**<-- End of block code right menu */
 
 
 

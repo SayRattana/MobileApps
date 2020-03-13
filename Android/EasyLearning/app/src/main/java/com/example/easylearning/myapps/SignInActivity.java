@@ -42,6 +42,10 @@ public class SignInActivity extends AppCompatActivity implements IMyActivity {
         mapUIToProperties();
         setUpAction();
 
+
+
+
+
     }
 
 
@@ -62,10 +66,6 @@ public class SignInActivity extends AppCompatActivity implements IMyActivity {
 
     @Override
     public void setUpAction() {
-
-
-
-
         mAuthStateListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -79,6 +79,10 @@ public class SignInActivity extends AppCompatActivity implements IMyActivity {
                 }
             }
         };
+
+
+
+
 
       /**--> Start of Code Button SingIn */
         btnSignIn.setOnClickListener(new View.OnClickListener() {

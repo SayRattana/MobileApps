@@ -16,9 +16,11 @@ import com.example.easylearning.IMyActivity.IMyActivity;
 import com.example.easylearning.R;
 
 
-public class AboutmeFragment extends Fragment implements IMyActivity {
+public class AboutmeFragment extends Fragment {
+
 
     private AboutmeViewModel aboutmeViewModel;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -26,6 +28,7 @@ public class AboutmeFragment extends Fragment implements IMyActivity {
                 ViewModelProviders.of(this).get(AboutmeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_aboutme, container, false);
         final TextView textView = root.findViewById(R.id.text_aboutme);
+
         aboutmeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
@@ -35,13 +38,4 @@ public class AboutmeFragment extends Fragment implements IMyActivity {
         return root;
     }
 
-    @Override
-    public void mapUIToProperties() {
-
-    }
-
-    @Override
-    public void setUpAction() {
-
-    }
 }
