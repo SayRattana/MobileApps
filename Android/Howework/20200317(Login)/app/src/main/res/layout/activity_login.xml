@@ -38,62 +38,49 @@
                 android:paddingLeft="10dp"
                 android:drawablePadding="10dp"/>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal"
-        android:gravity="center"
-
-        >
-
         <EditText
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
             android:background="#C8C8C8"
             android:drawableLeft="@drawable/ic_lock"
             android:drawablePadding="10dp"
-            android:hint="********************"
+            android:hint="************"
             android:inputType="textPassword"
             android:paddingLeft="10dp" />
 
-        <ImageButton
-            android:id="@+id/imgShowPassword1"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginRight="30dp"
-            android:background="#C8C8C8"
-            android:src="@drawable/ic_showpassword" />
-    </LinearLayout>
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:orientation="horizontal"
-        android:layout_marginTop="5dp"
         android:layout_marginEnd="30dp"
         android:layout_marginStart="30dp"  >
+
         <CheckBox
             android:id="@+id/cbCheck"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:layout_weight="1dp"
-            android:gravity="center_vertical"
+            android:layout_gravity="left"
             android:text="Remember Me"
             android:textColor="#5C5C5C"
             android:buttonTint="#BAE91E98"
-            android:checked="true"/>
+            android:checked="true"
+            android:layout_weight="0.01"/>
 
         <ImageButton
             android:id="@+id/imgShowPassword"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_weight="1dp"
-            android:gravity="center_vertical"
-            android:background="#C8C8C8"
-            android:src="@drawable/ic_showpassword" />
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="right|center"
+            android:background="#FFFFFF"
+            android:src="@drawable/ic_showpassword"
+            android:layout_weight="0.0"/>
 
 
     </LinearLayout>
