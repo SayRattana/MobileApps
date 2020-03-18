@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.InputType;
@@ -15,6 +16,7 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class SignupActivity extends AppCompatActivity {
     private EditText etEmail, etPassword;
@@ -75,6 +77,19 @@ public class SignupActivity extends AppCompatActivity {
 
     }
 
-
+    /**--> Start of code for Orientation (Portrait/Landscape) */
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        int orientation = newConfig.orientation;
+        if (orientation == Configuration.ORIENTATION_PORTRAIT) {
+            Toast.makeText(SignupActivity.this, "PORTRAIT", Toast.LENGTH_SHORT).show();
+        } else if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            Toast.makeText(SignupActivity.this, "LANDSCAPE", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Toast.makeText(SignupActivity.this, "other", Toast.LENGTH_SHORT).show();
+        }
+    }
+    /**<-- End of code for Orientation (Portrait/Landscape) */
 
 }

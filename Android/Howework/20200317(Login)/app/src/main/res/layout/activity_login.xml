@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -54,40 +60,54 @@
             android:paddingLeft="10dp" />
 
         <ImageButton
-            android:id="@+id/imgShowPassword"
+            android:id="@+id/imgShowPassword1"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginRight="30dp"
-
             android:background="#C8C8C8"
             android:src="@drawable/ic_showpassword" />
     </LinearLayout>
+
     <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginStart="30dp"  >
         <CheckBox
             android:id="@+id/cbCheck"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="30dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
+            android:layout_height="40dp"
+            android:layout_weight="1dp"
+            android:gravity="center_vertical"
             android:text="Remember Me"
             android:textColor="#5C5C5C"
             android:buttonTint="#BAE91E98"
             android:checked="true"/>
-         <TextView
-             android:id="@+id/tvAttempts"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             android:textAlignment="textEnd"
-             android:text="Attempts: 3"
-             android:layout_marginRight="30dp"
-             android:layout_marginTop="10dp"
-             android:textColor="#5C5C5C" />
+
+        <ImageButton
+            android:id="@+id/imgShowPassword"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_weight="1dp"
+            android:gravity="center_vertical"
+            android:background="#C8C8C8"
+            android:src="@drawable/ic_showpassword" />
+
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvAttempts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="textEnd"
+        android:text="Attempts: 3"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dp"
+        android:textColor="#5C5C5C" />
+
 
     <Button
         android:id="@+id/btnLogin"
@@ -125,43 +145,44 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginStart="30dp"        >
 
         <TextView
             android:id="@+id/tvFacebook"
-            android:layout_width="135dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
             android:background="@drawable/textview_border"
             android:drawableLeft="@drawable/ic_facebook"
-            android:drawablePadding="8dp"
-            android:gravity="center_vertical"
-            android:paddingLeft="10dp"
+            android:paddingLeft="5dp"
+            android:drawablePadding="5dp"
             android:text="Facebook"
             android:textColor="#3F51B5"
             android:textSize="16sp"
-            android:textStyle="bold"
-
-            />
+            android:textStyle="bold" />
+        <View
+            android:layout_height="match_parent"
+            android:layout_width="10dp"/>
 
         <TextView
             android:id="@+id/tvGoogle"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
             android:background="@drawable/textview_border"
             android:drawableLeft="@drawable/ic_google"
-            android:drawablePadding="8dp"
-            android:gravity="center_vertical"
-            android:paddingLeft="8dp"
+            android:paddingLeft="5dp"
+            android:drawablePadding="5dp"
             android:text="Google"
             android:textColor="#5C5C5C"
             android:textSize="16sp"
-            android:textStyle="bold"
-
-            />
+            android:textStyle="bold" />
 
     </LinearLayout>
 
@@ -182,8 +203,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/text_underline"
-
             android:textColor="#0000FF"/>
     </LinearLayout>
 
 </LinearLayout>
+</ScrollView>

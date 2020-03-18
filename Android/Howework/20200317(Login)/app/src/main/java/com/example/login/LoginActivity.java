@@ -3,6 +3,7 @@ package com.example.login;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.InputType;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText etEmail,etPassword;
@@ -84,8 +86,25 @@ public class LoginActivity extends AppCompatActivity {
         /**<-- End of Code Show/Hidden Password */
 
 
+
+
+
     }
 
+    /**--> Start of code for Orientation (Portrait/Landscape) */
+        public void onConfigurationChanged(Configuration newConfig) {
+            super.onConfigurationChanged(newConfig);
+            int orientation = newConfig.orientation;
+            if (orientation == Configuration.ORIENTATION_PORTRAIT) {
+                Toast.makeText(LoginActivity.this, "PORTRAIT", Toast.LENGTH_LONG).show();
+            } else if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                Toast.makeText(LoginActivity.this, "LANDSCAPE", Toast.LENGTH_LONG).show();
+            }
+            else {
+                Toast.makeText(LoginActivity.this, "other", Toast.LENGTH_LONG).show();
+            }
+        }
+    /**<-- End of code for Orientation (Portrait/Landscape) */
 
 
 }
