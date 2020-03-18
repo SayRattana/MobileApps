@@ -17,7 +17,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText etEmail,etPassword;
     private TextView tvFacebook,tvGoogle;
     private TextView tvSignupNow;
-    private ImageButton imgShowPassword;
+    private ImageButton imgShowPassword,imgSignUp;
     private Boolean isShowHidePassword = false;
 
 
@@ -39,6 +39,9 @@ public class LoginActivity extends AppCompatActivity {
         tvGoogle = findViewById(R.id.tvGoogle);
         tvSignupNow = findViewById(R.id.tvSignUpNow);
         imgShowPassword = findViewById(R.id.imgShowPassword);
+        imgSignUp = findViewById(R.id.imgSignup);
+
+
     }
 
 
@@ -71,6 +74,14 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(gotoSignup);
             }
         });
+        // Lambda Expressions
+        imgSignUp.setOnClickListener((View v) ->{
+//            Intent gotoSignup = new Intent(LoginActivity.this,SignupActivity.class);
+//            startActivity(gotoSignup);
+
+            Intent gotoSendMessage = new Intent(LoginActivity.this,SendMessageActivity.class);
+            startActivity(gotoSendMessage);
+        });
 
 
         /**--> Start of Code Show/Hidden Password */
@@ -92,13 +103,17 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     /**--> Start of code for Orientation (Portrait/Landscape) */
+
         public void onConfigurationChanged(Configuration newConfig) {
             super.onConfigurationChanged(newConfig);
             int orientation = newConfig.orientation;
             if (orientation == Configuration.ORIENTATION_PORTRAIT) {
                 Toast.makeText(LoginActivity.this, "PORTRAIT", Toast.LENGTH_LONG).show();
+
             } else if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
                 Toast.makeText(LoginActivity.this, "LANDSCAPE", Toast.LENGTH_LONG).show();
+
+
             }
             else {
                 Toast.makeText(LoginActivity.this, "other", Toast.LENGTH_LONG).show();

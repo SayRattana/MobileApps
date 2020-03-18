@@ -1,8 +1,9 @@
 # MobileApps
 
-	
+    # 19/03/2020 02:00 
+       - Update Android Code (Lesson Login: Create SendMessageActivity)	
     # 18/03/2020 23:00 
-       - Update Android Projects for Howework (Lesson Grid View)	
+       - Update Android Projects for Howework (Lesson Grid View)        
     # 17/03/2020 01:30 AM
        - Update Android Projects for Howework (Lesson Login)	
     # 16/03/2020 23:00
