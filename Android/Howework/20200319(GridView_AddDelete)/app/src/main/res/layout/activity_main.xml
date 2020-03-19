@@ -4,7 +4,8 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:weightSum="5"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    >
 
     <TextView
         android:id="@+id/tvHeaderLogin"
@@ -19,6 +20,7 @@
         android:background="#BAE91E98"
         />
 
+
     <GridView
         android:id="@+id/gridViewItems"
         android:layout_width="match_parent"
@@ -28,7 +30,7 @@
         android:gravity="center"
         android:numColumns="auto_fit"
         android:stretchMode="columnWidth"
-        android:layout_weight="4.5"/>
+        android:layout_weight="5"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -44,7 +46,8 @@
                 android:layout_weight="1"
                 android:background="@drawable/border"
                 android:text="Add"
-                android:textColor="#fff"
+                android:drawableLeft="@drawable/ic_add"
+                android:textColor="#FF0000FF"
                 android:textSize="16dp"
                 android:textStyle="bold"/>
 
@@ -55,7 +58,8 @@
                 android:layout_weight="1"
                 android:background="@drawable/border"
                 android:text="Remove"
-                android:textColor="#fff"
+                android:drawableRight="@drawable/ic_remove"
+                android:textColor="#FFFF0000"
                 android:textSize="16dp"
                 android:textStyle="bold"
                 />

@@ -1,5 +1,4 @@
 package com.example.gridviewadddelete;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -12,68 +11,72 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    GridView gridView;
-    Button btn_add, btn_remove;
-    ImagesAdapter adapter;
-    ArrayList<String> list;
-    SharedPreferences sharedPreferences;
-    SharedPreferences.Editor editor;
-    String Pref_Name = "Grid";
-    int count = 3;
-
-
+    private GridView gridViewItems;
+    private Button btnAdd, btnRemove;
+    private ImagesAdapter adapter;
+    private ArrayList<String> arrayList;
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
+    private String PrefName = "Grid";
+    private int count = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+            mapUIToProperties();
+            setUpAction();
+    }
 
-        gridView = (GridView) findViewById(R.id.gridViewItems);
-        btn_add = (Button) findViewById(R.id.btnAdd);
-        btn_remove = (Button) findViewById(R.id.btnRemove);
 
-        sharedPreferences = getSharedPreferences(Pref_Name, MODE_PRIVATE);
+
+    public void mapUIToProperties(){
+        gridViewItems = findViewById(R.id.gridViewItems);
+        btnAdd =findViewById(R.id.btnAdd);
+        btnRemove = findViewById(R.id.btnRemove);
+
+
+    }
+
+    public void setUpAction(){
+        sharedPreferences = getSharedPreferences(PrefName, MODE_PRIVATE);
         count = sharedPreferences.getInt("count", 3);
 
-        list = new ArrayList<>();
-
+        arrayList = new ArrayList<>();
         for (int i = 0; i < count; i++) {
-            list.add("");
+            arrayList.add("");
         }
 
-        adapter = new ImagesAdapter(this, list);
-        gridView.setAdapter(adapter);
+        adapter = new ImagesAdapter(this, arrayList);
+        gridViewItems.setAdapter(adapter);
 
-        btn_add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                list.add("");
-                adapter.notifyDataSetChanged();
-                gridView.setAdapter(adapter);
-
-                editor = sharedPreferences.edit();
-                editor.putInt("count", count + 1);
-                editor.apply();
-
-                Toast.makeText(getApplicationContext(), "One Image Added", Toast.LENGTH_SHORT).show();
-
-            }
+        /** Code for Button Add Grid Items*/
+        btnAdd.setOnClickListener((View v)->{
+            arrayList.add("");
+            adapter.notifyDataSetChanged();
+            gridViewItems.setAdapter(adapter);
+            editor = sharedPreferences.edit();
+            editor.putInt("count", count + 1);
+            editor.apply();
+                Toast.makeText(getApplicationContext(),
+                    "Add One Image", Toast.LENGTH_SHORT).show();
         });
 
-        btn_remove.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                list.remove("");
-                adapter.notifyDataSetChanged();
-                gridView.setAdapter(adapter);
 
-                editor = sharedPreferences.edit();
-                editor.putInt("count", count - 1);
-                editor.apply();
-
-                Toast.makeText(getApplicationContext(), "One Image Removed", Toast.LENGTH_SHORT).show();
-            }
+        /** Code for Button Remove Grid Items*/
+        btnRemove.setOnClickListener((View v)->{
+            arrayList.remove("");
+            adapter.notifyDataSetChanged();
+            gridViewItems.setAdapter(adapter);
+            editor = sharedPreferences.edit();
+            editor.putInt("count", count - 1);
+            editor.apply();
+                Toast.makeText(getApplicationContext(),
+                    "Image has been Removed", Toast.LENGTH_SHORT).show();
         });
+
     }
+
+
 
 }

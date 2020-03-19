@@ -1,6 +1,5 @@
 package com.example.gridviewadddelete;
 
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,16 +15,16 @@ import java.util.ArrayList;
 public class ImagesAdapter extends BaseAdapter {
 
     private Context context;
-    private ArrayList list = new ArrayList<>();
+    private ArrayList arrayList = new ArrayList<>();
 
-    public ImagesAdapter(Context context, ArrayList list) {
+    public ImagesAdapter(Context context, ArrayList arrayList) {
         this.context = context;
-        this.list = list;
+        this.arrayList = arrayList;
     }
 
     @Override
     public int getCount() {
-        return list.size();
+        return arrayList.size();
     }
 
     @Override
@@ -40,30 +39,54 @@ public class ImagesAdapter extends BaseAdapter {
 
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater = (LayoutInflater) context
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         convertView = inflater.inflate(R.layout.activity_imagetext, null);
-        TextView textView = (TextView) convertView.findViewById(R.id.gridItemLabels);
-        ImageView imageView = (ImageView) convertView.findViewById(R.id.gridItemImages);
 
-        int option = ((position+1)%3);
+        ImageView imageView = convertView.findViewById(R.id.gridItemImages);
+        TextView textView = convertView.findViewById(R.id.gridItemLabels);
 
+        int option = ((position+1)%7);
         switch (option) {
             case 0:
-                textView.setText("Windows");
-                imageView.setImageResource(R.drawable.windows_logo);
+                textView.setText("Watch");
+                imageView.setImageResource(R.drawable.ic_watch);
                 break;
+
             case 1:
                 textView.setText("Android");
-                imageView.setImageResource(R.drawable.android_logo);
+                imageView.setImageResource(R.drawable.ic_android);
                 break;
+
             case 2:
-                textView.setText("IOS");
-                imageView.setImageResource(R.drawable.ios_logo);
+                textView.setText("Contact");
+                imageView.setImageResource(R.drawable.ic_contact);
                 break;
+
+            case 3:
+                textView.setText("Gas Station");
+                imageView.setImageResource(R.drawable.ic_gasstation);
+                break;
+
+            case 4:
+                textView.setText("Live TV");
+                imageView.setImageResource(R.drawable.ic_livetv);
+                break;
+
+            case 5:
+                textView.setText("Camera");
+                imageView.setImageResource(R.drawable.ic_camera);
+                break;
+
+            case 6:
+                textView.setText("Music");
+                imageView.setImageResource(R.drawable.ic_music);
+                break;
+
             default:
                 textView.setText("Android");
-                imageView.setImageResource(R.drawable.android_logo);
-                break;
+                imageView.setImageResource(R.drawable.ic_launcher_background);
+            break;
         }
 
         return convertView;
