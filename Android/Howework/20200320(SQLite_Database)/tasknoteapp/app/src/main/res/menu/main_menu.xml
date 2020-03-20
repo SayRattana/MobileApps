@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+
+        android:title="title"
+        android:icon="@drawable/ic_more"
+        app:showAsAction="always">
+        <menu>
+            <item
+                android:id="@+id/itemAdd"
+                android:icon="@drawable/ic_add"
+                android:title="Add Note"
+
+                app:showAsAction="never"/>
+            <item
+                android:id="@+id/itemExit"
+                android:icon="@drawable/ic_close"
+                android:title="Exit"
+                app:showAsAction="never"/>
+        </menu>
+    </item>
+
+    </menu>
+
+

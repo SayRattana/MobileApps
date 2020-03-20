@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"   >
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="New Note"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:gravity="center_vertical"
+        android:paddingStart="10dp"
+        android:background="#800000FF" />
+    <EditText
+        android:id="@+id/txtName"
+        android:hint="Enter your taskNote"
+        android:padding="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:lines="2"
+        android:inputType="text" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:text="Important"
+        android:textColor="#D920AC"
+        android:buttonTint="#D920AC"
+        android:id="@+id/checkBoxImportant"
+        android:layout_gravity="left"
+        android:layout_height="30dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp">
+        <Button
+            android:layout_weight="1"
+            android:background="@drawable/border_btncancel"
+            android:textColor="#ffffff"
+            android:text="Cancel"
+            android:textStyle="bold"
+            android:id="@+id/btnCancel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <Space
+            android:layout_width="5dp"
+            android:layout_height="match_parent" />
+        <Button
+            android:layout_weight="1"
+            android:background="@drawable/border_btncommit"
+            android:id="@+id/btnCommit"
+            android:layout_width="match_parent"
+            android:textColor="#ffffff"
+            android:text="Commit"
+            android:textStyle="bold"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+</LinearLayout>
+</ScrollView>
