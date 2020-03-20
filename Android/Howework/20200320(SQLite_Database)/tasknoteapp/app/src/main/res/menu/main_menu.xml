@@ -13,7 +13,6 @@
                 android:id="@+id/itemAdd"
                 android:icon="@drawable/ic_add"
                 android:title="Add Note"
-
                 app:showAsAction="never"/>
             <item
                 android:id="@+id/itemExit"
