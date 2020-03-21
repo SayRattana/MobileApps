@@ -88,7 +88,6 @@
             android:src="@drawable/ic_showpassword"
             android:layout_weight="0.0"/>
 
-
     </LinearLayout>
 
 
@@ -122,9 +121,7 @@
         android:layout_marginRight="30dp"
         android:layout_marginTop="15dp"
         android:layout_gravity="center_vertical"
-        android:gravity="center"
-
-        >
+        android:gravity="center" >
 
         <ImageView
             android:layout_width="wrap_content"
@@ -203,8 +200,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:orientation="horizontal"
-        android:gravity="center"
-        >
+        android:gravity="center">
         <TextView
             android:id="@+id/tvNotaMember"
             android:layout_width="wrap_content"
@@ -219,16 +215,17 @@
             android:textColor="#0000FF"
             />
     </LinearLayout>
+
     <ImageButton
         android:id="@+id/imgSignup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="right"
         android:layout_margin="20dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:src="@drawable/ic_add"
         android:background="#ffffff"
-        android:layout_gravity="right"
+        android:src="@drawable/ic_add"
 
         />
 </LinearLayout>

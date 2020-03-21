@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("Task Note Management");
         this.setSupportActionBar(toolbar);
@@ -40,6 +41,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         registerForContextMenu(listView);
+
+
+
+
+
+
+
     }
 
     @Override
@@ -110,9 +118,17 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
         return super.onContextItemSelected(item);
+
+
+
+
     }
     public void refreshListView(){
         cursor = NoteModify.getInstance(this).getCursorAllNotes();
         customAdapter.swapCursor(cursor);
     }
+
+
+
+
 }

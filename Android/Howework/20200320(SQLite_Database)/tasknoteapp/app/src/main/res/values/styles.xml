@@ -8,10 +8,18 @@
         <item name="colorAccent">@color/colorAccent</item>
 
 
-
-        <item name="android:itemBackground">#FFFF00</item>
-        <item name="android:textColor">#0000FF</item>
+        <item name="android:popupMenuStyle">@style/popupMenuStyle</item>
 
     </style>
+
+
+    <!--- Language selection popup -->
+
+    <style name="popupMenuStyle" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:itemBackground">@android:color/white</item>
+    </style>
+
+
 
 </resources>

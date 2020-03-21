@@ -2,14 +2,17 @@ package com.example.easylearning.myapps;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,24 +29,29 @@ import com.google.firebase.auth.FirebaseUser;
 public class SignInActivity extends AppCompatActivity implements IMyActivity {
 
     private EditText etUserEmail, etUserPassword;
+    private ImageButton imgbtnShowHidePassword;
+    private Boolean isImgbtnshowHidePassword = false;
     private Button btnSignIn;
     private TextView tvSignUp,tvForgotPassword,tvShowAttempts;
     private ImageView ivSignPlus;
     private FirebaseAuth mFirebaseAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
     private  ProgressDialog progressDialog;
-    private int counter=5;
+    private int counter=3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signin);
 
-        mapUIToProperties();
-        setUpAction();
+    /**-->Start of Code Header Toolbar */
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle("SIGN IN");
+        this.setSupportActionBar(toolbar);
+    /**<--End of Code Header Toolbar */
 
-
-
+            mapUIToProperties();
+            setUpAction();
 
 
     }
@@ -54,6 +62,7 @@ public class SignInActivity extends AppCompatActivity implements IMyActivity {
         mFirebaseAuth = FirebaseAuth.getInstance();
         etUserEmail = findViewById(R.id.etUserEmail);
         etUserPassword = findViewById(R.id.etUserPassword);
+        imgbtnShowHidePassword = findViewById(R.id.imgbtnShowHidePassword);
         btnSignIn = findViewById(R.id.btnSignIn);
         tvForgotPassword = findViewById(R.id.tvForgotPassword);
         tvShowAttempts = findViewById(R.id.tvShowAttempts);
@@ -81,15 +90,20 @@ public class SignInActivity extends AppCompatActivity implements IMyActivity {
         };
 
 
+        /**--> Start of Code Show/Hidden Password */
+        imgbtnShowHidePassword.setOnClickListener(v -> {
+                isImgbtnshowHidePassword = !isImgbtnshowHidePassword;
+            etUserPassword.setInputType(isImgbtnshowHidePassword?
+                        InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD :
+                        InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+        });
+        /**<-- End of Code Show/Hidden Password */
 
 
-
-      /**--> Start of Code Button SingIn */
+        /**--> Start of Code Button SingIn */
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 String email = etUserEmail.getText().toString();
                 String pass = etUserPassword.getText().toString();
                 if (email.isEmpty()) {

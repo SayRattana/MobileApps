@@ -3,7 +3,7 @@
     <string name="e_mail">E-mail</string>
     <string name="password">Password</string>
     <string name="sign_in">Sign in</string>
-    <string name="not_registered_sign_up_here">Not registered ? Sign up here!</string>
+
     <string name="title_item_list">Items</string>
     <string name="title_item_detail">Item Detail</string>
     <string name="title_activity_main">MainActivity</string>
@@ -23,4 +23,7 @@
     <string name="menu_aboutme">About me</string>
 
     <string name="home_second">Home Second</string>
+
+    <string name="signuphere"> <u>Sign up here!</u></string>
+
 </resources>
