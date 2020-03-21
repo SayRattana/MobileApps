@@ -19,7 +19,7 @@
         android:layout_height="0dp"
         android:textSize="20dp"
         android:textStyle="bold"
-        android:background="#0000FF"
+        android:background="#3700B3"
         app:titleTextColor="#FFFFFF"/>
     <View android:id="@+id/viewLine"
         android:layout_width="match_parent"
@@ -84,7 +84,7 @@
         app:layout_constraintVertical_bias="0.0"  >
 
             <CheckBox
-                android:id="@+id/cbCheck"
+                android:id="@+id/cbRemember"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
@@ -202,7 +202,7 @@
             android:layout_height="match_parent"
             android:paddingLeft="5dp"
             android:text="@string/signuphere"
-            android:textColor="#0000FF"
+            android:textColor="#3700B3"
             android:textSize="18dp"
             android:textStyle="bold" />
 

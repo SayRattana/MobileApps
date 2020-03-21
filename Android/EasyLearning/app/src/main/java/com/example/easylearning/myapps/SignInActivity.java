@@ -6,11 +6,13 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -31,6 +33,7 @@ public class SignInActivity extends AppCompatActivity implements IMyActivity {
     private EditText etUserEmail, etUserPassword;
     private ImageButton imgbtnShowHidePassword;
     private Boolean isImgbtnshowHidePassword = false;
+    private CheckBox cbRemember;
     private Button btnSignIn;
     private TextView tvSignUp,tvForgotPassword,tvShowAttempts;
     private ImageView ivSignPlus;
@@ -63,6 +66,7 @@ public class SignInActivity extends AppCompatActivity implements IMyActivity {
         etUserEmail = findViewById(R.id.etUserEmail);
         etUserPassword = findViewById(R.id.etUserPassword);
         imgbtnShowHidePassword = findViewById(R.id.imgbtnShowHidePassword);
+        cbRemember = findViewById(R.id.cbRemember);
         btnSignIn = findViewById(R.id.btnSignIn);
         tvForgotPassword = findViewById(R.id.tvForgotPassword);
         tvShowAttempts = findViewById(R.id.tvShowAttempts);
@@ -89,6 +93,18 @@ public class SignInActivity extends AppCompatActivity implements IMyActivity {
             }
         };
 
+
+
+
+        cbRemember.setOnClickListener(v -> {
+            if(cbRemember.isChecked()){
+                cbRemember.setTextColor(getColorStateList(R.color.colorPrimaryDark));
+                cbRemember.setButtonTintList(getColorStateList(R.color.colorPrimaryDark));
+            }else {
+                cbRemember.setTextColor(getColorStateList(R.color.ColorGray));
+                cbRemember.setButtonTintList(getColorStateList(R.color.ColorGray));
+            }
+        });
 
         /**--> Start of Code Show/Hidden Password */
         imgbtnShowHidePassword.setOnClickListener(v -> {

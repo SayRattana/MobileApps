@@ -40,6 +40,7 @@ public class NoteAlertDialog extends AlertDialog {
         btnCancel = view.findViewById(R.id.btnCancel);
         checkBoxImportant = view.findViewById(R.id.checkBoxImportant);
         txtContent = view.findViewById(R.id.txtName);
+
         btnCancel.setOnClickListener(v -> {
             this.dismiss();
         });

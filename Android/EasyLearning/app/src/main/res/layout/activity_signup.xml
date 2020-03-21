@@ -23,7 +23,7 @@
         android:layout_height="0dp"
         android:textSize="20dp"
         android:textStyle="bold"
-        android:background="#0000FF"
+        android:background="#3700B3"
         app:titleTextColor="#FFFFFF"/>
     <View android:id="@+id/viewLine"
         android:layout_width="match_parent"
@@ -134,7 +134,7 @@
         android:layout_marginRight="24dp"
         android:text="Already have an account ? \nSign in here!"
         android:textAlignment="center"
-        android:textColor="#0000FF"
+        android:textColor="#3700B3"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

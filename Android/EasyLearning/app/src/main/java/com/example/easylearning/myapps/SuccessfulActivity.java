@@ -1,6 +1,7 @@
 package com.example.easylearning.myapps;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,8 +22,14 @@ public class SuccessfulActivity extends AppCompatActivity implements IMyActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_successful);
 
-        mapUIToProperties();
-        setUpAction();
+        /**-->Start of Code Header Toolbar */
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle("SUCCESSFUL");
+        this.setSupportActionBar(toolbar);
+        /**<--End of Code Header Toolbar */
+
+            mapUIToProperties();
+            setUpAction();
 
     }
 
