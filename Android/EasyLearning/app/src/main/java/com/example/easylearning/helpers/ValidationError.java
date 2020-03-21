@@ -4,7 +4,7 @@ public class ValidationError {
 
     public static final ValidationError USER_ERROR = new ValidationError(
             100,
-            "Username must be at least 4 characters");
+            "Username must be at least 2 characters");
 
     public static final ValidationError PASSWORD_ERROR = new ValidationError(
             101,

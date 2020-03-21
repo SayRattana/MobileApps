@@ -9,8 +9,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.easylearning.myapps.SignInActivity">
+    tools:context=".myapps.SignInActivity">
 
+<!--Toolbar-->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         app:layout_constraintTop_toTopOf="parent"
@@ -20,7 +21,6 @@
         android:textStyle="bold"
         android:background="#0000FF"
         app:titleTextColor="#FFFFFF"/>
-
     <View android:id="@+id/viewLine"
         android:layout_width="match_parent"
         android:layout_height="3dp"
@@ -28,7 +28,8 @@
         android:background="#ffffff">
     </View>
 
-    <EditText
+    <!--User email-->
+        <EditText
         android:id="@+id/etUserEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -47,7 +48,8 @@
         app:layout_constraintTop_toBottomOf="@id/toolbar"
         app:layout_constraintVertical_bias="0.0" />
 
-    <EditText
+    <!--User Password-->
+        <EditText
         android:id="@+id/etUserPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -66,8 +68,8 @@
         app:layout_constraintTop_toBottomOf="@+id/etUserEmail"
         app:layout_constraintVertical_bias="0.0" />
 
-
-    <LinearLayout
+    <!-- CheckBox and Image Show/HiddenPassword-->
+        <LinearLayout
         android:id="@+id/linearshowhidepass"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -99,9 +101,11 @@
                 android:background="#FFFFFF"
                 android:src="@drawable/ic_showpassword"
                 android:layout_weight="0.0"/>
+
     </LinearLayout>
 
-    <Button
+    <!--SignIn-->
+        <Button
         android:id="@+id/btnSignIn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -111,7 +115,7 @@
         android:text="@string/sign_in"
         android:textColor="#FFFF"
         android:textStyle="bold"
-        android:background="@drawable/border_btnsignin"
+        android:background="@drawable/border_btn"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -119,7 +123,8 @@
         app:layout_constraintTop_toBottomOf="@+id/linearshowhidepass"
         app:layout_constraintVertical_bias="0.0" />
 
-    <LinearLayout
+    <!--TextView Forgot Password-->
+        <LinearLayout
         android:id="@+id/linearforgotpass"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -151,8 +156,8 @@
             android:textSize="14dp" />
     </LinearLayout>
 
-
-    <TextView
+    <!--TShow Attempts password-->
+        <TextView
         android:id="@+id/tvShowAttempts"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -168,7 +173,8 @@
         app:layout_constraintTop_toBottomOf="@+id/linearforgotpass"
         app:layout_constraintVertical_bias="0.0" />
 
-    <LinearLayout
+    <!--TextView SignUp-->
+        <LinearLayout
         android:id="@+id/linearsignup"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -202,7 +208,8 @@
 
     </LinearLayout>
 
-    <ImageView
+    <!--Go to SignUp-->
+        <ImageView
         android:id="@+id/ivSignPlus"
         android:layout_width="48dp"
         android:layout_height="48dp"

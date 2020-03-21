@@ -1,6 +1,10 @@
 # MobileApps
 <<<<<<< HEAD
-	
+
+	# 21/03/2020 19:00 
+     	  - Update Android Projects EasyLearning (Update SigupActivity)
+	# 21/03/2020 17:30 
+     	  - Update Android Projects EasyLearning (Update ResetPasswordActivity)	
 	# 21/03/2020 16:20 
      	  - Update Android Projects EasyLearning (Update SigninActivity)
    	# 20/03/2020 22:30 

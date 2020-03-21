@@ -2,8 +2,10 @@ package com.example.easylearning.myapps;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -29,6 +31,12 @@ public class ResetPasswordActivity extends AppCompatActivity implements IMyActiv
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resetpassword);
 
+        /**-->Start of Code Header Toolbar */
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle("RESET PASSWORD");
+        this.setSupportActionBar(toolbar);
+        /**<--End of Code Header Toolbar */
+
         mapUIToProperties();
         setUpAction();
 
@@ -47,42 +55,41 @@ public class ResetPasswordActivity extends AppCompatActivity implements IMyActiv
 
     @Override
     public void setUpAction() {
-       /**--> Start of Code Button Reset Password */
+        /**--> Start of Code Button Reset Password */
         btnResetPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String userEmail = etResetPassword.getText().toString().trim();
-                if(userEmail.equals(null)|| userEmail.equals("")){
-                    Toast.makeText(ResetPasswordActivity.this,"Please enter your registered email id"
-                            ,Toast.LENGTH_SHORT).show();
-                }else {
+                if (userEmail.equals(null) || userEmail.equals("")) {
+                    Toast.makeText(ResetPasswordActivity.this, "Please enter your registered email id"
+                            , Toast.LENGTH_SHORT).show();
+                } else {
                     firebaseAuth.sendPasswordResetEmail(userEmail).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
-                    if(task.isSuccessful()){
-                        Toast.makeText(ResetPasswordActivity.this,"Password reset email sent!",Toast.LENGTH_SHORT).show();
-                        finish();
-                        startActivity(new Intent(ResetPasswordActivity.this, SignInActivity.class));
-                    }else {
+                            if (task.isSuccessful()) {
+                                Toast.makeText(ResetPasswordActivity.this, "Password reset email sent!", Toast.LENGTH_SHORT).show();
+                                finish();
+                                startActivity(new Intent(ResetPasswordActivity.this, SignInActivity.class));
+                            } else {
 
-                        Toast.makeText(ResetPasswordActivity.this," Error in sending or Invalid email",Toast.LENGTH_SHORT).show();
-                        tvInvalidEmail.setText("Invalid e-mail, Please try again!");
-                        // finish(); // if have problem, Please close this line code Finish().
-                    }
+                                Toast.makeText(ResetPasswordActivity.this, " Error in sending or Invalid email", Toast.LENGTH_SHORT).show();
+                                tvInvalidEmail.setText("Invalid e-mail, Please try again!");
+
+                            }
                         }
                     });
                 }
             }
         });
 
-       /**<-- End of Code Button Reset Password */
-
-
-
-
-
+        /**<-- End of Code Button Reset Password */
 
     }
+
+
+
+
 
 
 

@@ -4,7 +4,7 @@ import java.util.regex.Pattern;
 
 public class Validation {
     public  static  ValidationError validateUsername(String username){
-        if(username.length()<4){
+        if(username.length()<2){
             return ValidationError.USER_ERROR;
         }else{
             return null; //No error
