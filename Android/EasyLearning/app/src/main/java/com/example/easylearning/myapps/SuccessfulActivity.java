@@ -35,7 +35,7 @@ public class SuccessfulActivity extends AppCompatActivity implements IMyActivity
 
     @Override
     public void mapUIToProperties() {
-        btnLogOut =findViewById(R.id.btnLogout);
+        btnLogOut =findViewById(R.id.btnsignout);
 
     }
 
@@ -46,8 +46,9 @@ public class SuccessfulActivity extends AppCompatActivity implements IMyActivity
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
-                Intent intToSignin = new Intent(SuccessfulActivity.this, SignInActivity.class);
-                startActivity(intToSignin);
+                finish();
+               Intent intToSignin = new Intent(SuccessfulActivity.this, SignInActivity.class);
+               startActivity(intToSignin);
             }
         });
       /**End of Code Button LogOut */

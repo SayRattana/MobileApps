@@ -33,7 +33,7 @@
         android:id="@+id/etUserEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="50dp"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
         android:ems="12"
@@ -123,6 +123,25 @@
         app:layout_constraintTop_toBottomOf="@+id/linearshowhidepass"
         app:layout_constraintVertical_bias="0.0" />
 
+
+
+    <!--Show Attempts password-->
+        <TextView
+        android:id="@+id/tvShowAttempts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="24dp"
+        android:text="Attempts remaining: 3"
+        android:textAlignment="center"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSignIn"
+        app:layout_constraintVertical_bias="0.0" />
+
     <!--TextView Forgot Password-->
         <LinearLayout
         android:id="@+id/linearforgotpass"
@@ -130,14 +149,15 @@
         android:layout_height="match_parent"
         android:layout_gravity="center_vertical"
         android:layout_marginLeft="24dp"
+        android:layout_marginTop="15dp"
         android:layout_marginRight="24dp"
         android:gravity="center_horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnSignIn"
-        app:layout_constraintVertical_bias="0.100000024">
+        app:layout_constraintTop_toBottomOf="@id/tvShowAttempts"
+        app:layout_constraintVertical_bias="0.0">
 
         <ImageView
             android:layout_width="wrap_content"
@@ -156,28 +176,79 @@
             android:textSize="14dp" />
     </LinearLayout>
 
-    <!--TShow Attempts password-->
+    <!--Or Singin with-->
         <TextView
-        android:id="@+id/tvShowAttempts"
+        android:id="@+id/tvOrsigninwith"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="24dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:layout_marginRight="24dp"
-        android:text="Number of attempts remaining: 3"
+        android:text="Or Signin with"
         android:textAlignment="center"
         android:textSize="14dp"
+        android:textColor="#000000"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearforgotpass"
+        app:layout_constraintTop_toBottomOf="@id/linearforgotpass"
         app:layout_constraintVertical_bias="0.0" />
 
-    <!--TextView SignUp-->
+    <!--Button Facebook and Google-->
         <LinearLayout
+        android:id="@+id/linearOrsigninwith"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvOrsigninwith"
+        app:layout_constraintVertical_bias="0.0">
+        >
+
+        <Button
+            android:id="@+id/btnfacebook_signin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/border_fb_google"
+            android:drawableLeft="@drawable/ic_facebook"
+            android:padding="10dp"
+            android:text="Facebook"
+            android:textColor="#475993"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textAllCaps="false" />
+
+        <View
+            android:layout_width="10dp"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:id="@+id/btngoogle_signin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/border_fb_google"
+            android:drawableLeft="@drawable/ic_google"
+            android:padding="10dp"
+            android:text="Google"
+            android:textStyle="bold"
+            android:textAllCaps="false" />
+    </LinearLayout>
+
+    <!--TextView SignUp-->
+    <LinearLayout
         android:id="@+id/linearsignup"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="15dp"
         android:layout_marginLeft="24dp"
         android:layout_marginRight="24dp"
         android:gravity="center_horizontal"
@@ -185,8 +256,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvShowAttempts"
-        app:layout_constraintVertical_bias="0.39">
+        app:layout_constraintTop_toBottomOf="@id/linearOrsigninwith"
+        app:layout_constraintVertical_bias="0.0">
 
         <TextView
             android:id="@+id/tvNotaMember"
@@ -209,21 +280,23 @@
     </LinearLayout>
 
     <!--Go to SignUp-->
-        <ImageView
+
+
+    <ImageView
         android:id="@+id/ivSignPlus"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="24dp"
+        android:src="@drawable/ic_add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearsignup"
-        app:layout_constraintVertical_bias="0.96"
-        android:src="@drawable/ic_add"/>
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

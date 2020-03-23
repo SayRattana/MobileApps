@@ -132,8 +132,8 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.action_signout: {
                     FirebaseAuth.getInstance().signOut();
                     finish();
-                    Intent goToSignin = new Intent(MainActivity.this, SignInActivity.class);
-                    startActivity(goToSignin);
+                    //Intent goToSignin = new Intent(MainActivity.this, SignInActivity.class);
+                    //startActivity(goToSignin);
                     break;
 
                 }
