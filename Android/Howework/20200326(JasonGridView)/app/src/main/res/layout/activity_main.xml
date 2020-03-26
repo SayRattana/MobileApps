@@ -12,14 +12,14 @@
 <LinearLayout
     android:id="@+id/linearbtnshow"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
     >
     <Button
-        android:id="@+id/btnShowListView"
+        android:id="@+id/btnShowGridView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:text="Show JSON List View" />
+        android:layout_height="match_parent"
+        android:text="Show JSON Gride View" />
 </LinearLayout>
 
 

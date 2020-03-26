@@ -1,2 +1,2 @@
-rootProject.name='JSONwithLivstView'
+rootProject.name='JSONListView'
 include ':app'

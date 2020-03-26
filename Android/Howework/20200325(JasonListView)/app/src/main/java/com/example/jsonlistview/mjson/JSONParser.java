@@ -1,4 +1,4 @@
-package com.example.jsonwithlivstview.mjson;
+package com.example.jsonlistview.mjson;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -36,7 +36,7 @@ public class JSONParser extends AsyncTask<Void,Void,Boolean> {
         super.onPreExecute();
 
         progressDialog = new ProgressDialog(context);
-        progressDialog.setTitle("Parse JSON");
+        progressDialog.setTitle("Parse ListView");
         progressDialog.setMessage("Parsing...!\nPlease wait");
         progressDialog.show();
     }
@@ -59,6 +59,7 @@ public class JSONParser extends AsyncTask<Void,Void,Boolean> {
                 @Override
                 public void onItemClick(AdapterView<?>  adapterView, View view, int i, long id) {
                     Toast.makeText(context,users.get(i),Toast.LENGTH_SHORT).show();
+
                 }
             });
 
@@ -69,15 +70,17 @@ public class JSONParser extends AsyncTask<Void,Void,Boolean> {
     }
 
     private Boolean parse(){
+
         try {
             JSONArray jsonArray =new JSONArray(jsonData);
             JSONObject jsonObject;
             users.clear();
             for (int i=0; i<jsonArray.length();i++){
                 jsonObject=jsonArray.getJSONObject(i);
-
-                String name =jsonObject.getString("name");
-                users.add(name);
+                String id  = jsonObject.getString("id");
+                String title =jsonObject.getString("title");
+                users.add(id);
+                users.add(title);
             }
             return true;
         }catch (JSONException e){

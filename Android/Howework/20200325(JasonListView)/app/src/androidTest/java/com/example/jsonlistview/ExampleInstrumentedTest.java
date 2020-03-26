@@ -1,4 +1,4 @@
-package com.example.jsonwithlivstview;
+package com.example.jsonlistview;
 
 import android.content.Context;
 

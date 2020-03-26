@@ -1,10 +1,9 @@
-package com.example.jsonwithlivstview.mjson;
+package com.example.jsongridview.mjson;
 
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
-import android.service.notification.Condition;
-import android.widget.ListView;
+import android.widget.GridView;
 import android.widget.Toast;
 
 import java.io.BufferedInputStream;
@@ -18,20 +17,20 @@ import javax.net.ssl.HttpsURLConnection;
 public class JSONDownloader extends AsyncTask<Void,Void,String> {
     Context context;
     String jsonURL;
-    ListView lv;
+    GridView gv;
     ProgressDialog progressDialog;
 
-    public JSONDownloader(Context context, String jsonURL, ListView lv) {
+    public JSONDownloader(Context context, String jsonURL, GridView gv) {
         this.context = context;
         this.jsonURL = jsonURL;
-        this.lv = lv;
+        this.gv = gv;
     }
 
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
         progressDialog = new ProgressDialog(context);
-        progressDialog.setTitle("Download JSON");
+        progressDialog.setTitle("Download GridView");
         progressDialog.setMessage("Downloading...!\nPlease wait");
         progressDialog.show();
     }
@@ -51,7 +50,7 @@ public class JSONDownloader extends AsyncTask<Void,Void,String> {
             Toast.makeText(context,error,Toast.LENGTH_SHORT).show();
         }else {
             //PARSER
-            new JSONParser(context,jsonData,lv).execute();
+            new JSONParser(context,jsonData, gv).execute();
         }
     }
 

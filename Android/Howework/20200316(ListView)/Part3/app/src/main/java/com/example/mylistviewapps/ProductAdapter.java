@@ -51,11 +51,11 @@ public class ProductAdapter extends BaseAdapter {
         return productItem;
     }
     private void mapProductToUI(View view, Product product, int position) {
-//        if(position % 2 == 0) {
-//            view.setBackgroundColor(0x66FF0000);//red
-//        } else {
-//            view.setBackgroundColor(0x6600FF00);//green
-//        }
+        if(position % 2 == 0) {
+            view.setBackgroundColor(0x66FF0000);//red
+        } else {
+            view.setBackgroundColor(0x6600FF00);//green
+        }
         ImageView imageViewProductURL = view.findViewById(R.id.imageViewProductURL);
         Picasso.get().load(product.getProductURL()).into(imageViewProductURL);
         TextView txtProductName = view.findViewById(R.id.txtProductName);
