@@ -42,14 +42,15 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-
         holder.anime.setText(mData.get(position).getName());
-        holder.rating.setText(mData.get(position).getCategorie());
-        holder.studio.setText(mData.get(position).getStudio());
+        holder.rating.setText(mData.get(position).getRating());
         holder.categories.setText(mData.get(position).getCategorie());
+        holder.studio.setText(mData.get(position).getStudio());
 
         // load image from the internet using Glide
-        Glide.with(mContext).load(mData.get(position).getImage_url()).apply(option).into(holder.imgthumbnail);
+        Glide.with(mContext).load(mData.get(position)
+                .getImage_url()).apply(option)
+                .into(holder.imgthumbnail);
 
     }
 
