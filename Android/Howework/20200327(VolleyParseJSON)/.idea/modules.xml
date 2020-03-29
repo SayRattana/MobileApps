@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/20200327(VolleyParseJSON).iml" filepath="$PROJECT_DIR$/20200327(VolleyParseJSON).iml" group="20200327(VolleyParseJSON)" />
+      <module fileurl="file://$PROJECT_DIR$/app/20200327(VolleyParseJSON)-app.iml" filepath="$PROJECT_DIR$/app/20200327(VolleyParseJSON)-app.iml" group="20200327(VolleyParseJSON)/app" />
+      <module fileurl="file://$PROJECT_DIR$/MyApplication5.iml" filepath="$PROJECT_DIR$/MyApplication5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+    </modules>
+  </component>
+</project>
