@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.easylearning">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="MyCar"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".myapps.AboutActivity"></activity>
+        <activity android:name=".myapps.UsersActivity" />
+        <activity
+            android:name=".productcar.HomeActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity android:name=".productcar.MainActivity" />
+        <activity android:name=".productcar.ViewActivity" />
+        <activity android:name=".myapps.ProfileActivity" />
+        <activity android:name=".myapps.SendMessageActivity" />
+        <activity android:name=".myapps.ResetPasswordActivity" />
+        <activity android:name=".myapps.SuccessfulActivity" />
+        <activity android:name=".myapps.SignUpActivity" />
+        <activity android:name=".myapps.SignInActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

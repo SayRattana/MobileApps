@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".productcar.MainActivity"
+    android:background="#303030">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:src="@drawable/ic_image_car"
+        android:scaleType="fitXY"
+        android:id="@+id/imageVIewAdd"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        />
+
+
+    <LinearLayout
+        android:id="@+id/lID_Year"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageVIewAdd"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginRight="20dp"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
+
+        <EditText
+            android:id="@+id/inputImageID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter ID"
+            android:inputType="text"
+            android:textColor="#FFF"
+            android:textColorHint="#80BABABA"
+            android:layout_weight="1"
+            android:textCursorDrawable="@drawable/change_cursor_color_white"
+            android:backgroundTint="#80BABABA"
+            />
+        <Space
+            android:layout_width="30dp"
+            android:layout_height="0dp"/>
+
+        <EditText
+            android:id="@+id/inputImageYear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Year"
+            android:inputType="number"
+            android:textColor="#FFF"
+            android:textColorHint="#80BABABA"
+            android:layout_weight="1"
+            android:textCursorDrawable="@drawable/change_cursor_color_white"
+            android:backgroundTint="#80BABABA"/>
+
+    </LinearLayout>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Image Name"
+        android:id="@+id/inputImageName"
+        android:textColor="#FFF"
+        android:textColorHint="#80BABABA"
+        android:layout_below="@+id/lID_Year"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textCursorDrawable="@drawable/change_cursor_color_white"
+        android:backgroundTint="#80BABABA"
+        android:inputType="textCapSentences"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Company"
+        android:id="@+id/inputImageCompany"
+        android:textColor="#FFF"
+        android:textColorHint="#80BABABA"
+        android:layout_below="@+id/inputImageName"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textCursorDrawable="@drawable/change_cursor_color_white"
+        android:backgroundTint="#80BABABA"
+        android:inputType="textCapCharacters"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Kind of Car"
+        android:id="@+id/inputKindofCar"
+        android:textColor="#FFF"
+        android:textColorHint="#80BABABA"
+        android:layout_below="@+id/inputImageCompany"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textCursorDrawable="@drawable/change_cursor_color_white"
+        android:backgroundTint="#80BABABA"
+        android:inputType="textCapSentences"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewProgress"
+        android:layout_below="@id/inputKindofCar"
+        android:text="0.0 %"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:textColor="#00F"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp" />
+    <ProgressBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_below="@+id/textViewProgress"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Upload"
+        android:textStyle="bold"
+        android:textColor="#FFF"
+        android:background="@drawable/border_btn"
+        android:id="@+id/btnUpload"
+        android:layout_below="@+id/progressBar"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottom_navigation"
+        app:itemBackground="@color/colorPrimary"
+        app:itemTextColor="@drawable/selectcolor"
+        app:itemIconTint="@drawable/selectcolor"
+        app:menu="@menu/bottom_navigation"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>

@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.easylearning.myapps.AboutActivity"
+        android:background="@color/colorBlack">
+
+        <LinearLayout
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="This Apps"
+            android:textColor="#0F0"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textAlignment="center"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="for final android exam only !"
+            android:textColor="#0F0"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textAlignment="center"/>
+
+    </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/school"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/title"
+            android:gravity="center_vertical"
+            android:background="#303030"
+            android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Aptech"
+                    android:textColor="#FF5722"
+                    android:textSize="30sp"
+                    android:layout_weight="1"
+                    android:textAlignment="center"/>
+                <LinearLayout
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:background="#670909"
+                    android:paddingLeft="10dp"
+                    android:paddingBottom="5dp"
+
+                    >
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:text="COMPUTER"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorWhite"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="EDUCATION"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorWhite"/>
+
+                </LinearLayout>
+
+
+        </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/teachername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@id/school" >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Teacher Name"
+            android:background="@color/colorWhite"
+            android:textColor="@color/colorBlack"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textAlignment="center"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nguyen Duc Hoang"
+            android:textColor="#0000FF"
+            android:background="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="italic|bold"
+            android:textAlignment="center"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/fbyoutube"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/teachername"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/facebook"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Facebook"
+            android:textColor="@color/colorWhite"
+            android:textSize="16sp"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:background="@drawable/border_btn"/>
+        <Space
+            android:layout_width="5dp"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/youtube"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Youtube"
+            android:textColor="@color/colorWhite"
+            android:textSize="16sp"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:background="@drawable/border_btn_youtube"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/team"
+    android:layout_width="100dp"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/fbyoutube"
+    android:text="TEAM :"
+    android:background="@drawable/border_teacher_name"
+    android:textColor="@color/colorWhite"
+    android:layout_marginTop="50dp"
+    android:layout_marginLeft="20dp"
+    android:textSize="20sp"
+    android:textStyle="bold"
+    android:textAlignment="center" />
+    <LinearLayout
+        android:id="@+id/teammember"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@id/team"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="50dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="1-Mr. SAY  RATTANA"
+            android:textColor="@color/colorWhite"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Leader"
+            android:textColor="@color/colorWhite"
+            android:textSize="10sp"
+            android:textStyle="italic"
+            android:layout_marginRight="20dp"
+            android:textAlignment="textEnd"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="2-Mr. SENG  SENGHAY"
+            android:textColor="@color/colorWhite"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Member"
+            android:textColor="@color/colorWhite"
+            android:textSize="10sp"
+            android:textStyle="italic"
+            android:layout_marginRight="20dp"
+            android:textAlignment="textEnd"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       android:layout_alignParentBottom="true"
+        android:layout_marginBottom="70dp"
+        android:text="HANOI 2020"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="#0F0"
+        android:textAlignment="center"/>
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottom_navigation"
+        app:itemBackground="@color/colorPrimary"
+        app:itemTextColor="@drawable/selectcolor"
+        app:itemIconTint="@drawable/selectcolor"
+        app:menu="@menu/bottom_navigation"
+        android:layout_alignParentBottom="true"/>
+
+
+    </RelativeLayout>
+
+
+
+

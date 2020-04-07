@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".productcar.ViewActivity"
+android:background="#303030">
+
+
+    <!--Toolbar-->
+    <TextView
+        android:id="@+id/headerCar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:gravity="center_vertical"
+        android:text=" DETAIL INFORMATION"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="#FFF"
+        android:background="#3700B3"  />
+
+
+
+    <LinearLayout
+        android:id="@+id/LinearMainFirst"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="5dp"
+        android:orientation="vertical"
+        android:layout_below="@id/headerCar">
+
+
+        <LinearLayout
+            android:id="@+id/LinerMain_ID_Year"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:orientation="horizontal">
+
+        <!--TextviewID-->
+            <LinearLayout
+                android:id="@+id/linearID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/border_textview"
+                android:orientation="horizontal"  >
+
+                <TextView
+                    android:id="@+id/ID"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingLeft="5dp"
+                    android:text="ID :"
+                    android:gravity="left"
+                    android:textColor="#FFF"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView_ID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/ID"
+                    android:layout_weight="1"
+                    android:text="View ID"
+                    android:textColor="#FFF"
+                    android:textSize="18dp"
+                    android:textStyle="italic"
+                    android:textAllCaps="true" />
+            </LinearLayout>
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="wrap_content" />
+        <!--TextviewYear-->
+            <LinearLayout
+                android:id="@+id/linerYear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/border_textview"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_gravity="right">
+
+                <TextView
+                    android:id="@+id/year"
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:text="YEAR :"
+                    android:textColor="#FFF"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/EditText_Year"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="left"
+                    android:text="2020"
+                    android:inputType="number"
+                    android:textColor="#FFF"
+                    android:textSize="18dp"
+                    android:textStyle="italic"
+                    android:paddingLeft="5dp"
+                    android:background="@null"
+                    android:textCursorDrawable="@drawable/change_cursor_color_white"
+                    android:enabled="false"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+        <ImageView
+            android:id="@+id/image_single_view_Activity"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_margin="5dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/image_car" />
+
+        <EditText
+            android:id="@+id/editText_CarName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="My car"
+            android:textColor="#00F"
+            android:textCursorDrawable="@drawable/change_cursor_color_blue"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:enabled="false"
+            android:background="@null"/>
+
+         <LinearLayout
+            android:id="@+id/linearCompany"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+             android:layout_marginTop="15dp"
+            android:orientation="horizontal"
+            android:layout_marginLeft="10dp" >
+
+        <TextView
+            android:id="@+id/textView_company"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:text="Company :"
+            android:textColor="#FFF"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:layout_weight="1"/>
+        <EditText
+            android:id="@+id/editText_CarCompany"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="Car Company"
+            android:textColor="#FFF"
+            android:textSize="16dp"
+            android:textStyle="italic"
+            android:inputType="textCapCharacters"
+            android:background="@null"
+            android:textCursorDrawable="@drawable/change_cursor_color_white"
+            android:enabled="false"
+            android:layout_weight="1"
+            />
+
+    </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearkindofcar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="left">
+
+            <TextView
+                android:id="@+id/tv_kindofcar"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:text="Kind of car :"
+                android:textColor="#FFF"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:layout_weight="1"/>
+            <EditText
+                android:id="@+id/editText_KindOfCar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="Kind of Car"
+                android:textColor="#FFF"
+                android:textSize="16dp"
+                android:textStyle="italic"
+                android:inputType="textCapSentences"
+                android:background="@null"
+                android:textCursorDrawable="@drawable/change_cursor_color_white"
+                android:enabled="false"
+                android:layout_weight="1"
+                android:gravity="left"/>
+
+        </LinearLayout>
+
+    <!--Button Delete/ Update-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp">
+            <Button
+                android:id="@+id/btnDelete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/border_btn_delete"
+                android:text="Delete"
+                android:textColor="#F00"
+                android:textStyle="bold"
+                android:layout_weight="1"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+                <Button
+                    android:id="@+id/btnEdit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border_btn"
+                    android:text="Edit"
+                    android:textColor="#FFF"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btnUpdate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border_btn_update"
+                    android:text="Update"
+                    android:textColor="#0F0"
+                    android:textStyle="bold"
+                    android:visibility="invisible"
+                    />
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/bottom_navigation"
+            app:itemBackground="@color/colorPrimary"
+            app:itemTextColor="@drawable/selectcolor"
+            app:itemIconTint="@drawable/selectcolor"
+            app:menu="@menu/bottom_navigation"
+            android:layout_alignParentBottom="true"
+           />
+
+
+
+
+</RelativeLayout>
+
+    
