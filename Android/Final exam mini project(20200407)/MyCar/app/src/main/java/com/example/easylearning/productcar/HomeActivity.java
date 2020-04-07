@@ -1,15 +1,21 @@
 package com.example.easylearning.productcar;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +31,7 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
@@ -39,12 +46,21 @@ public class HomeActivity extends AppCompatActivity {
     FirebaseRecyclerAdapter<Car,MyViewHolder>adapter;
     DatabaseReference Dataref;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-    /**--> Start of block code bottom navigation */
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle("Car List");
+        this.setSupportActionBar(toolbar);
+
+
+
+
+        /**--> Start of block code bottom navigation */
         // Initialize and Assign Variable
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         // Set Home
@@ -77,18 +93,14 @@ public class HomeActivity extends AppCompatActivity {
                         return true;
                 }
 
-                switch (item.getItemId()){
-                    case R.id.bottom_navi_signout:
-                        startActivity(new Intent(getApplicationContext(), SignInActivity.class));
-                        overridePendingTransition(0,0);
-                        Toast.makeText(HomeActivity.this, "You are Signed out", Toast.LENGTH_SHORT).show();
-                        return true;
-                }
 
                 return false;
             }
         });
     /**--> End of block code bottom navigation */
+
+
+
 
 
         Dataref= FirebaseDatabase.getInstance().getReference().child("Car");
@@ -174,4 +186,57 @@ public class HomeActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
     }
+
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.home, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+//        int id = item.getItemId();
+//        //noinspection SimplifiableIfStatement
+//        if (id == R.id.action_profile) {
+//            startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+//            overridePendingTransition(0,0);
+//            return true;
+//        }
+//        if(id == R.id.action_signout){
+//            startActivity(new Intent(getApplicationContext(), SignInActivity.class));
+//            overridePendingTransition(0,0);
+//            Toast.makeText(HomeActivity.this,
+//                    "You are Signed out", Toast.LENGTH_SHORT).show();
+//            return true;
+//        }
+        switch (item.getItemId()){
+            case R.id.action_home:
+                return true;
+        }
+        switch (item.getItemId()){
+            case R.id.action_profile:
+                startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                overridePendingTransition(0,0);
+                return true;
+        }
+        switch (item.getItemId()){
+            case R.id.action_about:
+                startActivity(new Intent(getApplicationContext(), AboutActivity.class));
+                overridePendingTransition(0,0);
+                return true;
+        }
+        switch (item.getItemId()){
+            case R.id.action_signout:
+                startActivity(new Intent(getApplicationContext(), SignInActivity.class));
+                overridePendingTransition(0,0);
+                Toast.makeText(HomeActivity.this,
+                        "You are Signed out", Toast.LENGTH_SHORT).show();
+                return true;
+        }
+
+        return false;
+    }
+
 }

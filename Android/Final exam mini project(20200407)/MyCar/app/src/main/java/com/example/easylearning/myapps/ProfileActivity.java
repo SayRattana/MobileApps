@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
@@ -16,6 +17,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.TextUtils;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -89,6 +91,12 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
+        /**-->Start of Code Header Toolbar */
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle("MY PROFILE");
+        this.setSupportActionBar(toolbar);
+        /**<--End of Code Header Toolbar */
 
         /**--> Start of block code bottom navigation */
         // Initialize and Assign Variable
@@ -548,6 +556,65 @@ public class ProfileActivity extends AppCompatActivity {
         Intent galleryInter = new Intent(Intent.ACTION_PICK);
         galleryInter.setType("image/*");
         startActivityForResult(galleryInter,IMAGE_PICK_GALLERY_CODE);
+    }
+
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.home, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+//        int id = item.getItemId();
+//
+//        //noinspection SimplifiableIfStatement
+//        if (id == R.id.action_profile) {
+//            startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+//            overridePendingTransition(0,0);
+//            return true;
+//        }
+//        if(id == R.id.action_signout){
+//            startActivity(new Intent(getApplicationContext(), SignInActivity.class));
+//            overridePendingTransition(0,0);
+//            Toast.makeText(ProfileActivity.this,
+//                    "You are Signed out", Toast.LENGTH_SHORT).show();
+//            return true;
+//        }
+
+        switch (item.getItemId()){
+            case R.id.action_home:
+                startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+                overridePendingTransition(0,0);
+                return true;
+        }
+        switch (item.getItemId()){
+            case R.id.action_profile:
+                return true;
+        }
+        switch (item.getItemId()){
+            case R.id.action_about:
+                startActivity(new Intent(getApplicationContext(), AboutActivity.class));
+                overridePendingTransition(0,0);
+                return true;
+        }
+
+        switch (item.getItemId()){
+            case R.id.action_signout:
+                startActivity(new Intent(getApplicationContext(), SignInActivity.class));
+                overridePendingTransition(0,0);
+                Toast.makeText(ProfileActivity.this,
+                        "You are Signed out", Toast.LENGTH_SHORT).show();
+                return true;
+        }
+
+
+        return false;
     }
 
 }

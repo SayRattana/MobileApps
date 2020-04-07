@@ -6,19 +6,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".productcar.HomeActivity"
-    android:background="#000"
-    >
+    android:background="#000" >
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#000"
+        app:titleTextColor="@color/colorWhite"
+        app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+
 
     <EditText
+
         android:id="@+id/inputSearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Search by name here ..."
         android:inputType="textCapSentences"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="8dp"
         android:layout_marginBottom="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="30dp"
         android:paddingRight="10dp"
         android:paddingLeft="10dp"
         android:paddingTop="5dp"

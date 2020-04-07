@@ -57,6 +57,7 @@ public class ViewActivity extends AppCompatActivity {
         // Initialize and Assign Variable
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         // Set Home
+       // bottomNavigationView.setSelectedItemId(R.id.bottom_navi_signout);
         bottomNavigationView.setSelectedItemId(R.id.bottom_navi_signout);
         // Perform ItemSelectListner
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {

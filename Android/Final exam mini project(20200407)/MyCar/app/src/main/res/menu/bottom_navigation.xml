@@ -23,5 +23,6 @@
     <item
         android:id="@+id/bottom_navi_signout"
         android:icon="@drawable/ic_bottom_signout"
-        android:title="SignOut"/>
+        android:title="Sign Out"/>
+
 </menu>
