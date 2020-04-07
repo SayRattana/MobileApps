@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
         /**--> Start of block code bottom navigation */
             // Initialize and Assign Variable
-            BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+            BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_signout);
             // Set Home
             bottomNavigationView.setSelectedItemId(R.id.bottom_navi_signout);
             // Perform ItemSelectListner
@@ -77,19 +77,6 @@ public class MainActivity extends AppCompatActivity {
                     switch (item.getItemId()){
                         case R.id.bottom_navi_home:
                             startActivity(new Intent(getApplicationContext(),HomeActivity.class));
-                            overridePendingTransition(0,0);
-                            return true;
-                    }
-                    switch (item.getItemId()){
-                        case R.id.bottom_navi_user:
-                            startActivity(new Intent(getApplicationContext(), UsersActivity.class));
-                            overridePendingTransition(0,0);
-                            return true;
-                    }
-
-                    switch (item.getItemId()){
-                        case R.id.bottom_navi_about:
-                            startActivity(new Intent(getApplicationContext(), AboutActivity.class));
                             overridePendingTransition(0,0);
                             return true;
                     }

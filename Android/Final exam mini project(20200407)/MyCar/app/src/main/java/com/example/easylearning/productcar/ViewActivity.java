@@ -3,6 +3,7 @@ package com.example.easylearning.productcar;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -52,6 +53,12 @@ public class ViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view);
 
+        /**-->Start of Code Header Toolbar */
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle("Detail Information");
+        this.setSupportActionBar(toolbar);
+        /**<--End of Code Header Toolbar */
+
 
         /**--> Start of block code bottom navigation */
         // Initialize and Assign Variable
@@ -86,14 +93,6 @@ public class ViewActivity extends AppCompatActivity {
                     case R.id.bottom_navi_about:
                         startActivity(new Intent(getApplicationContext(), AboutActivity.class));
                         overridePendingTransition(0,0);
-                        return true;
-                }
-
-                switch (item.getItemId()) {
-                    case R.id.bottom_navi_signout:
-                        startActivity(new Intent(getApplicationContext(), SignInActivity.class));
-                        overridePendingTransition(0, 0);
-                        Toast.makeText(ViewActivity.this, "You are Signed out", Toast.LENGTH_SHORT).show();
                         return true;
                 }
 

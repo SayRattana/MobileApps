@@ -94,7 +94,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         /**-->Start of Code Header Toolbar */
         Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle("MY PROFILE");
+        toolbar.setTitle("My Profile");
         this.setSupportActionBar(toolbar);
         /**<--End of Code Header Toolbar */
 
@@ -129,15 +129,6 @@ public class ProfileActivity extends AppCompatActivity {
                     case R.id.bottom_navi_about:
                         startActivity(new Intent(getApplicationContext(), AboutActivity.class));
                         overridePendingTransition(0,0);
-                        return true;
-                }
-
-                switch (item.getItemId()){
-                    case R.id.bottom_navi_signout:
-
-                        startActivity(new Intent(getApplicationContext(), SignInActivity.class));
-                        overridePendingTransition(0,0);
-                        Toast.makeText(ProfileActivity.this, "You are Signed out", Toast.LENGTH_SHORT).show();
                         return true;
                 }
 

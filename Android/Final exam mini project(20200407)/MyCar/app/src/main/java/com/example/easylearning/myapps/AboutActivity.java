@@ -57,13 +57,6 @@ public class AboutActivity extends AppCompatActivity {
                         return true;
                 }
 
-                switch (item.getItemId()){
-                    case R.id.bottom_navi_signout:
-                        startActivity(new Intent(getApplicationContext(), SignInActivity.class));
-                        overridePendingTransition(0,0);
-                        Toast.makeText(AboutActivity.this, "You are Signed out", Toast.LENGTH_SHORT).show();
-                        return true;
-                }
 
                 return false;
             }

@@ -10,16 +10,13 @@ android:background="#303030">
 
 
     <!--Toolbar-->
-    <TextView
-        android:id="@+id/headerCar"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:gravity="center_vertical"
-        android:text=" DETAIL INFORMATION"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        android:textColor="#FFF"
-        android:background="#3700B3"  />
+        android:layout_height="?attr/actionBarSize"
+        android:background="#000"
+        app:titleTextColor="@color/colorWhite"
+        app:popupTheme="@style/AppTheme.PopupOverlay" />
 
 
 
@@ -31,7 +28,7 @@ android:background="#303030">
         android:layout_alignParentBottom="true"
         android:layout_margin="5dp"
         android:orientation="vertical"
-        android:layout_below="@id/headerCar">
+        android:layout_below="@id/toolbar">
 
 
         <LinearLayout

@@ -11,13 +11,10 @@
         android:id="@+id/bottom_navi_profile"
         android:icon="@drawable/ic_profile"
         android:title="Profile"/>
+
     <item
-        android:id="@+id/bottom_navi_user"
-        android:icon="@drawable/ic_bottom_users"
-        android:title="User"/>
-    <item
-        android:id="@+id/bottom_navi_about"
-        android:icon="@drawable/ic_bottom_aboutus"
-        android:title="About"/>
+        android:id="@+id/bottom_navi_signout"
+        android:icon="@drawable/ic_bottom_signout"
+        android:title="Sign Out"/>
 
 </menu>
