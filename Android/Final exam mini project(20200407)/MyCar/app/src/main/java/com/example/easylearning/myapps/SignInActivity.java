@@ -179,104 +179,104 @@ public class SignInActivity extends MyActivity implements IMyActivity {
 
         /**--> Start of Code Button SingIn */
             btnSignIn.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            String email = etUserEmail.getText().toString();
-            String pass = etUserPassword.getText().toString();
+                @Override
+                public void onClick(View v) {
+                String email = etUserEmail.getText().toString();
+                String pass = etUserPassword.getText().toString();
 
-            // Remember Password
-            if(cbRemember.isChecked()){
-                Boolean iscbRemember = cbRemember.isChecked();
-                SharedPreferences.Editor editor = mPrefs.edit();
-                editor.putString("pref_name",etUserEmail.getText().toString());
-                editor.putString("pref_pass",etUserPassword.getText().toString());
-                editor.putBoolean("pref_check",iscbRemember);
-                editor.apply();
-                //Toast.makeText(SignInActivity.this, "Remember Password", Toast.LENGTH_SHORT).show();
-            }else {
-                mPrefs.edit().clear().apply();
-            }
+                // Remember Password
+                if(cbRemember.isChecked()){
+                    Boolean iscbRemember = cbRemember.isChecked();
+                    SharedPreferences.Editor editor = mPrefs.edit();
+                    editor.putString("pref_name",etUserEmail.getText().toString());
+                    editor.putString("pref_pass",etUserPassword.getText().toString());
+                    editor.putBoolean("pref_check",iscbRemember);
+                    editor.apply();
+                    //Toast.makeText(SignInActivity.this, "Remember Password", Toast.LENGTH_SHORT).show();
+                }else {
+                    mPrefs.edit().clear().apply();
+                }
 
-            if (email.isEmpty()) {
-                etUserEmail.setError("Please enter your email id");
-                etUserEmail.requestFocus();
-            } else if (pass.isEmpty()) {
-                etUserPassword.setError("Please enter your password");
-                etUserPassword.requestFocus();
-            } else if (email.isEmpty() && pass.isEmpty()) {
-                Toast.makeText(SignInActivity.this, "Field are empty", Toast.LENGTH_SHORT).show();
-            } else if (!(email.isEmpty() && pass.isEmpty())) {
-                progressDialog.setMessage("Loading...");
-                progressDialog.show();
-                mFirebaseAuth.signInWithEmailAndPassword(email, pass)
-                        .addOnCompleteListener(SignInActivity.this, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (!task.isSuccessful()) {
-                                    Toast.makeText(SignInActivity.this,
-                                    "Authentication failed !", Toast.LENGTH_SHORT).show();
-                                    counter--;
-                                    tvShowAttempts.setText("Attempts remaining: " + String.valueOf(counter));
-                                    //tvShowAttempts.setTextColor(Color.rgb(255,0,0));
-                                    tvShowAttempts.setTextColor(0xFFFF0000);
-                                    progressDialog.dismiss();
-                                    if (counter == 0) {
-                                        btnSignIn.setEnabled(false);
-                                        btnSignIn.setBackground(getDrawable(R.drawable.border_notsignin));
-                                        btnSignIn.setText("Can not Sign In");
+                if (email.isEmpty()) {
+                    etUserEmail.setError("Please enter your email id");
+                    etUserEmail.requestFocus();
+                } else if (pass.isEmpty()) {
+                    etUserPassword.setError("Please enter your password");
+                    etUserPassword.requestFocus();
+                } else if (email.isEmpty() && pass.isEmpty()) {
+                    Toast.makeText(SignInActivity.this, "Field are empty", Toast.LENGTH_SHORT).show();
+                } else if (!(email.isEmpty() && pass.isEmpty())) {
+                    progressDialog.setMessage("Loading...");
+                    progressDialog.show();
+                    mFirebaseAuth.signInWithEmailAndPassword(email, pass)
+                            .addOnCompleteListener(SignInActivity.this, new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (!task.isSuccessful()) {
+                                        Toast.makeText(SignInActivity.this,
+                                                "Authentication failed !", Toast.LENGTH_SHORT).show();
+                                        counter--;
+                                        tvShowAttempts.setText("Attempts remaining: " + String.valueOf(counter));
+                                        //tvShowAttempts.setTextColor(Color.rgb(255,0,0));
+                                        tvShowAttempts.setTextColor(0xFFFF0000);
+                                        progressDialog.dismiss();
+                                        if (counter == 0) {
+                                            btnSignIn.setEnabled(false);
+                                            btnSignIn.setBackground(getDrawable(R.drawable.border_notsignin));
+                                            btnSignIn.setText("Can not Sign In");
+                                        }
+                                    } else {
+                                        progressDialog.dismiss();
+                                        Intent goToMain = new Intent(SignInActivity.this, HomeActivity.class);
+                                        startActivity(goToMain);
+
+                                        etUserEmail.getText().clear();
+                                        etUserPassword.getText().clear();
                                     }
-                                } else {
-                                    progressDialog.dismiss();
-                                    Intent goToMain = new Intent(SignInActivity.this, HomeActivity.class);
-                                    startActivity(goToMain);
-
-                                    etUserEmail.getText().clear();
-                                    etUserPassword.getText().clear();
                                 }
-                            }
-                        });
-            } else {
-                Toast.makeText(SignInActivity.this, "Error Occurred!", Toast.LENGTH_SHORT).show();
+                            });
+                } else {
+                    Toast.makeText(SignInActivity.this, "Error Occurred!", Toast.LENGTH_SHORT).show();
+                }
             }
-        }
-        });
+             });
         /**<-- End of Code Button SingIn */
 
 
         /**--> Start of Code TextView Forgot Password */
-             tvForgotPassword.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Intent goToReset = new Intent(SignInActivity.this,ResetPasswordActivity.class);
-            startActivity(goToReset);
-            //showRecoverPasswordDialog(); // for call dialog Recovery Password but not use.
-        }
+            tvForgotPassword.setOnClickListener(new View.OnClickListener() {
 
-        });
+                @Override
+                public void onClick(View v) {
+                    Intent goToReset = new Intent(SignInActivity.this,ResetPasswordActivity.class);
+                    startActivity(goToReset);
+
+                }
+            });
         /**<-- End of Code TextView Forgot Password */
 
 
         /**--> Start of Code TextView SignUp*/
             tvSignUp.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Intent intSignUp = new Intent(SignInActivity.this, SignUpActivity.class);
-            startActivity(intSignUp);
-            finish();
-        }
-        });
+                @Override
+                public void onClick(View v) {
+                    Intent intSignUp = new Intent(SignInActivity.this, SignUpActivity.class);
+                    startActivity(intSignUp);
+                    finish();
+                }
+            });
         /**<-- End of Code TextView SignUp*/
 
 
         /**--> Start of Code ImageView SignUp (SignPlus) */
             ivSignPlus.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Intent intSignUp = new Intent(SignInActivity.this, SignUpActivity.class);
-            startActivity(intSignUp);
-            finish();
-        }
-        });
+                @Override
+                public void onClick(View v) {
+                    Intent intSignUp = new Intent(SignInActivity.this, SignUpActivity.class);
+                    startActivity(intSignUp);
+                    finish();
+                }
+            });
         /**<-- End of Code ImageView SignUp (SignPlus) */
 
 
@@ -287,9 +287,6 @@ public class SignInActivity extends MyActivity implements IMyActivity {
                 Toast.makeText(SignInActivity.this,
                         "Constructionning...",Toast.LENGTH_SHORT).show();
             });
-
-
-
         /**--> End of Code Facebook Sigin Button */
 
 
@@ -452,7 +449,7 @@ public class SignInActivity extends MyActivity implements IMyActivity {
                         }else {
                             progressDialog.dismiss();
                             Toast.makeText(SignInActivity.this,
-                                    "Sign In Failed.\nPlease check internet connection!",Toast.LENGTH_SHORT).show();
+                                    "Sign In Failed.\nPlease try again!",Toast.LENGTH_SHORT).show();
 
                         }
                     }

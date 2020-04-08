@@ -88,8 +88,6 @@ List<ModelUsers> usersList;
         //get All user
         getAllUsers();
 
-
-
     }
 
     private void getAllUsers() {

@@ -26,6 +26,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.easylearning.IMyActivity.IMyActivity;
 import com.example.easylearning.R;
 import com.example.easylearning.productcar.HomeActivity;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -50,7 +51,7 @@ import java.util.HashMap;
 
 import static com.google.firebase.storage.FirebaseStorage.getInstance;
 
-public class ProfileActivity extends AppCompatActivity {
+public class ProfileActivity extends AppCompatActivity  implements IMyActivity {
 
     FirebaseAuth firebaseAuth;
     FirebaseUser user;
@@ -92,128 +93,9 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        /**-->Start of Code Header Toolbar */
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle("My Profile");
-        this.setSupportActionBar(toolbar);
-        /**<--End of Code Header Toolbar */
+            mapUIToProperties();
+            setUpAction();
 
-        /**--> Start of block code bottom navigation */
-        // Initialize and Assign Variable
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-        // Set Home
-        bottomNavigationView.setSelectedItemId(R.id.bottom_navi_profile);
-        // Perform ItemSelectListner
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
-                    case R.id.bottom_navi_profile:
-                        return true;
-                }
-                switch (item.getItemId()){
-                    case R.id.bottom_navi_home:
-                        startActivity(new Intent(getApplicationContext(), HomeActivity.class));
-                        overridePendingTransition(0,0);
-                        return true;
-                }
-
-                switch (item.getItemId()){
-                    case R.id.bottom_navi_user:
-                        startActivity(new Intent(getApplicationContext(), UsersActivity.class));
-                        overridePendingTransition(0,0);
-                        return true;
-                }
-
-                switch (item.getItemId()){
-                    case R.id.bottom_navi_about:
-                        startActivity(new Intent(getApplicationContext(), AboutActivity.class));
-                        overridePendingTransition(0,0);
-                        return true;
-                }
-
-                return false;
-            }
-        });
-        /**--> End of block code bottom navigation */
-
-
-        // init firebase
-        firebaseAuth = FirebaseAuth.getInstance();
-        user = firebaseAuth.getCurrentUser();
-        firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference =firebaseDatabase.getReference("Users");
-        storageReference = getInstance().getReference();    //firebase storage referent
-
-
-        //init array of permissions
-        cameraPermission = new String[] {Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE};
-        storagePermission = new String[] {Manifest.permission.WRITE_EXTERNAL_STORAGE};
-
-
-
-
-
-        // init View
-        avatarIV = findViewById(R.id.avatarIvUser);
-        coverIV = findViewById(R.id.coverIV);
-        nameTV = findViewById(R.id.nameTvUser);
-        emailTV = findViewById(R.id.emailTvUser);
-        phoneTV = findViewById(R.id.phoneTV);
-        fab = findViewById(R.id.fab);
-
-        progressDialog = new ProgressDialog(this);
-
-        Query query = databaseReference.orderByChild("email").equalTo(user.getEmail());
-        query.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot ds : dataSnapshot.getChildren()){
-
-                    //get date
-                    String name = "" + ds.child("name").getValue();
-                    String email = "" + ds.child("email").getValue();
-                    String phone = "" + ds.child("phone").getValue();
-                    String image = "" + ds.child("image").getValue();
-                    String cover = "" + ds.child("cover").getValue();
-
-                    //set date
-                    nameTV.setText(name);
-                    emailTV.setText(email);
-                    phoneTV.setText(phone);
-                    try {
-                        Picasso.get().load(image).into(avatarIV);
-
-                    }catch (Exception e){
-                        //if this is any exception while getting image then set default.
-                        Picasso.get().load(R.drawable.ic_default_img_white).into(avatarIV);
-                    }
-
-                    try {
-                        Picasso.get().load(cover).into(coverIV);
-
-                    }catch (Exception e){
-                        //if this is any exception while getting image then set default.
-
-                    }
-
-                }
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
-        //fab button click
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showEditProfileDialog();
-            }
-        });
 
 
 
@@ -270,7 +152,7 @@ public class ProfileActivity extends AppCompatActivity {
                 else if (which ==1){
                     // Edit Cover Click
                     progressDialog.setMessage("Updating Cover Photo");
-                    profileOrCoverPhoto = "cover";
+                    profileOrCoverPhoto = "cover";  // changing Cover picture, make sure to assign same value.
                     showImagePicDialog();
                 }
                 else if (which ==2){
@@ -592,20 +474,161 @@ public class ProfileActivity extends AppCompatActivity {
             case R.id.action_about:
                 startActivity(new Intent(getApplicationContext(), AboutActivity.class));
                 overridePendingTransition(0,0);
+                finish();
                 return true;
         }
 
         switch (item.getItemId()){
             case R.id.action_signout:
-                startActivity(new Intent(getApplicationContext(), SignInActivity.class));
-                overridePendingTransition(0,0);
+                firebaseAuth.signOut();
+                startActivity(new Intent(ProfileActivity.this, SignInActivity.class));
                 Toast.makeText(ProfileActivity.this,
                         "You are Signed out", Toast.LENGTH_SHORT).show();
+                finish();
                 return true;
         }
 
 
         return false;
     }
+
+
+
+
+    @Override
+    public void mapUIToProperties() {
+        /**-->Start of Code Header Toolbar */
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle("My Profile");
+        this.setSupportActionBar(toolbar);
+        /**<--End of Code Header Toolbar */
+
+        /**--> Start of block code bottom navigation */
+        // Initialize and Assign Variable
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        // Set Home
+        bottomNavigationView.setSelectedItemId(R.id.bottom_navi_profile);
+        // Perform ItemSelectListner
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.bottom_navi_profile:
+                        return true;
+                }
+                switch (item.getItemId()){
+                    case R.id.bottom_navi_home:
+                        startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                }
+
+                switch (item.getItemId()){
+                    case R.id.bottom_navi_user:
+                        startActivity(new Intent(getApplicationContext(), UsersActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                }
+
+                switch (item.getItemId()){
+                    case R.id.bottom_navi_about:
+                        startActivity(new Intent(getApplicationContext(), AboutActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                }
+
+                return false;
+            }
+        });
+        /**--> End of block code bottom navigation */
+
+        // init firebase
+        firebaseAuth = FirebaseAuth.getInstance();
+        user = firebaseAuth.getCurrentUser();
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference =firebaseDatabase.getReference("Users");
+        storageReference = getInstance().getReference();    //firebase storage reference
+
+
+        //init array of permissions
+        cameraPermission = new String[] {Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE};
+        storagePermission = new String[] {Manifest.permission.WRITE_EXTERNAL_STORAGE};
+
+
+
+        // init View
+        avatarIV = findViewById(R.id.avatarIvUser);
+        coverIV = findViewById(R.id.coverIV);
+        nameTV = findViewById(R.id.nameTvUser);
+        emailTV = findViewById(R.id.emailTvUser);
+        phoneTV = findViewById(R.id.phoneTV);
+        fab = findViewById(R.id.fab);
+        progressDialog = new ProgressDialog(this);
+
+
+
+    }
+
+    @Override
+    public void setUpAction() {
+    //fab button click for customize like as: Cover, Profile , Name and Phone....
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showEditProfileDialog();
+            }
+        });
+
+
+    /**--> Start of Code for show Profile (First Sign in show E-mail and Default avatar image) */
+        Query query = databaseReference.orderByChild("email").equalTo(user.getEmail());
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot ds : dataSnapshot.getChildren()){
+
+                    //get date
+                    String name = "" + ds.child("name").getValue();
+                    String email = "" + ds.child("email").getValue();
+                    String phone = "" + ds.child("phone").getValue();
+                    String image = "" + ds.child("image").getValue();
+                    String cover = "" + ds.child("cover").getValue();
+
+                    //set date
+                    nameTV.setText(name);
+                    emailTV.setText(email);
+                    phoneTV.setText(phone);
+                    try {
+                        Picasso.get().load(image).into(avatarIV);
+
+                    }catch (Exception e){
+                    //if this is any exception while getting image then set default.
+                        //Picasso.get().load(R.drawable.ic_default_img_white).into(avatarIV);
+                        avatarIV.setImageResource(R.drawable.ic_default_img_white);
+                    }
+
+                    try {
+                        Picasso.get().load(cover).into(coverIV);
+
+                    }catch (Exception e){
+                        //if this is any exception while getting image then set default.
+
+                    }
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    /**<--Start of Code for show Profile */
+
+
+    }
+
+
 
 }

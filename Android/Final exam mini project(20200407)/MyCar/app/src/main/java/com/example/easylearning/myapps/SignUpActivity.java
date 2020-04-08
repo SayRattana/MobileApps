@@ -34,6 +34,7 @@ import java.util.HashMap;
 import java.util.regex.Pattern;
 
 public class SignUpActivity extends AppCompatActivity implements IMyActivity {
+
     private EditText etUserName, etEmail, etPassword;
     private ImageButton imgbtnShowHidePassword;
     private Boolean isImgbtnshowHidePassword = false;
@@ -83,7 +84,6 @@ public class SignUpActivity extends AppCompatActivity implements IMyActivity {
     @Override
     public void setUpAction() {
 
-
         /**--> Start of Code Show/Hidden Password */
         imgbtnShowHidePassword.setOnClickListener(v -> {
             isImgbtnshowHidePassword = !isImgbtnshowHidePassword;
@@ -122,7 +122,7 @@ public class SignUpActivity extends AppCompatActivity implements IMyActivity {
                             Toast.LENGTH_SHORT).show();
                 }
 
-                // For Username field incorrect format.
+                // For Username field  less than 2 characters.
                 ValidationError validationError = Validation.validateUsername(etUserName.getText().toString());
                 if (validationError != null) {
                     Toast.makeText(SignUpActivity.this,
@@ -146,11 +146,10 @@ public class SignUpActivity extends AppCompatActivity implements IMyActivity {
                     Toast.makeText(SignUpActivity.this,
                             validationError.getErrorDetail(), Toast.LENGTH_SHORT).show();
                     etPassword.requestFocus();
-
                     return;
                 }
 
-                // For E-mail and Password fields are correct.
+                // For E-mail and Password fields are Correct.
                 else if (!(email.isEmpty() && pass.isEmpty())) {
                     registerUser(email,pass);
 
@@ -161,9 +160,6 @@ public class SignUpActivity extends AppCompatActivity implements IMyActivity {
             }
         });
         /** End of Code Button SingUp */
-
-
-
 
 
 
@@ -198,7 +194,7 @@ public class SignUpActivity extends AppCompatActivity implements IMyActivity {
                             String uid = user.getUid();
 
 
-                            // When user is signup/register store user info in firebase realtime database too.
+                            // When user is sign up /register store user info in firebase realtime database too.
                             HashMap<Object,String>  hashMap = new HashMap<>();
 
                             //put info from Hasmap
@@ -255,6 +251,12 @@ public class SignUpActivity extends AppCompatActivity implements IMyActivity {
                 Toast.makeText(SignUpActivity.this, "Error !", Toast.LENGTH_SHORT).show();
             }
         }
+
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(this, "Please press Already....? for back ", Toast.LENGTH_SHORT).show();
+        return;
+    }
 
     }
 

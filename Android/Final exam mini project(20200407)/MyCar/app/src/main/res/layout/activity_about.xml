@@ -150,18 +150,35 @@
     android:background="@drawable/border_teacher_name"
     android:textColor="@color/colorWhite"
     android:layout_marginTop="50dp"
-    android:layout_marginLeft="20dp"
+    android:layout_marginLeft="10dp"
     android:textSize="20sp"
     android:textStyle="bold"
     android:textAlignment="center" />
+    <androidx.cardview.widget.CardView
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        app:cardCornerRadius="50dp"
+        app:cardElevation="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"
+        android:layout_below="@id/fbyoutube">
+
+        <ImageView
+            android:id="@+id/img_rattana"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/rattana"/>
+    </androidx.cardview.widget.CardView>
     <LinearLayout
         android:id="@+id/teammember"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_below="@id/team"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="50dp">
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -182,7 +199,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:text="2-Mr. SENG  SENGHAY"
             android:textColor="@color/colorWhite"
             android:textSize="20sp"
@@ -198,17 +215,35 @@
             android:textAlignment="textEnd"/>
 
     </LinearLayout>
+    <androidx.cardview.widget.CardView
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        app:cardCornerRadius="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@id/teammember">
 
-    <TextView
+        <ImageView
+            android:id="@+id/img_hay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/hay"/>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+        <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
        android:layout_alignParentBottom="true"
         android:layout_marginBottom="70dp"
         android:text="HANOI 2020"
-        android:textSize="14sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         android:textColor="#0F0"
-        android:textAlignment="center"/>
+        android:layout_marginRight="20dp"
+        android:textAlignment="textEnd"/>
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

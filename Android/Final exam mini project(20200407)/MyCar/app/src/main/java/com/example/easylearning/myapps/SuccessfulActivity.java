@@ -53,14 +53,10 @@ public class SuccessfulActivity extends AppCompatActivity implements IMyActivity
             btnLogOut.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                   // FirebaseAuth.getInstance().signOut();
                     firebaseAuth.signOut();
                     checkUserStatus();
-                  // Intent intToSignin = new Intent(SuccessfulActivity.this, SignInActivity.class);
-                  // startActivity(intToSignin);
                     Toast.makeText(SuccessfulActivity.this,
                             "You are Signed out", Toast.LENGTH_SHORT).show();
-                    //finish();
                 }
             });
        /**End of Code Button LogOut */
@@ -81,9 +77,11 @@ public class SuccessfulActivity extends AppCompatActivity implements IMyActivity
         }
     }
 
-    @Override
-    protected void onStart() {
-        checkUserStatus();
-        super.onStart();
-    }
+//    @Override
+//    protected void onStart() {
+//        checkUserStatus();
+//        super.onStart();
+//    }
+
+
 }

@@ -225,7 +225,7 @@ public class ViewActivity extends AppCompatActivity {
                     public void onSuccess(Void aVoid) {
                         startActivity(new Intent(getApplicationContext(),HomeActivity.class));
                         Toast.makeText(ViewActivity.this,
-                        "Data Successfully Uploaded!", Toast.LENGTH_SHORT).show();
+                        "Successfully Update!", Toast.LENGTH_SHORT).show();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override

@@ -26,12 +26,15 @@ import com.example.easylearning.R;
 import com.example.easylearning.myapps.AboutActivity;
 import com.example.easylearning.myapps.ProfileActivity;
 import com.example.easylearning.myapps.SignInActivity;
+import com.example.easylearning.myapps.SuccessfulActivity;
 import com.example.easylearning.myapps.UsersActivity;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
@@ -45,6 +48,7 @@ public class HomeActivity extends AppCompatActivity {
     FirebaseRecyclerOptions<Car> options;
     FirebaseRecyclerAdapter<Car,MyViewHolder>adapter;
     DatabaseReference Dataref;
+    private FirebaseAuth firebaseAuth;
 
 
 
@@ -101,7 +105,7 @@ public class HomeActivity extends AppCompatActivity {
 
 
 
-
+        firebaseAuth = FirebaseAuth.getInstance();
         Dataref= FirebaseDatabase.getInstance().getReference().child("Car");
 
         inputSearch=findViewById(R.id.inputSearch);
@@ -112,7 +116,13 @@ public class HomeActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         recyclerView.setHasFixedSize(true);
 
-
+/*      // This block Code for Reverse
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+            linearLayoutManager.setReverseLayout(true);
+            linearLayoutManager.setStackFromEnd(true);
+            recyclerView.setLayoutManager(linearLayoutManager);
+            recyclerView.setHasFixedSize(true);
+*/
         floatingbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -228,14 +238,23 @@ public class HomeActivity extends AppCompatActivity {
         }
         switch (item.getItemId()){
             case R.id.action_signout:
-                startActivity(new Intent(getApplicationContext(), SignInActivity.class));
-                overridePendingTransition(0,0);
+                firebaseAuth.signOut();
+                finish();
+                startActivity(new Intent(HomeActivity.this, SignInActivity.class));
                 Toast.makeText(HomeActivity.this,
                         "You are Signed out", Toast.LENGTH_SHORT).show();
+
                 return true;
         }
 
         return false;
     }
 
+
+
+
+    @Override
+    public void onBackPressed() {
+        return;
+    }
 }

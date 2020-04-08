@@ -17,7 +17,6 @@
         app:popupTheme="@style/AppTheme.PopupOverlay" />
 
 
-
     <EditText
 
         android:id="@+id/inputSearch"
@@ -44,6 +43,7 @@
         android:layout_height="match_parent"
         android:id="@+id/recylerView"
         android:background="#000"
+        android:layout_marginBottom="56dp"
         />
 
 
